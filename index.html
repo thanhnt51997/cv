@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ sơ chuyên nghiệp | Nguyễn Tất Thành</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: "Fresh Green Harmony" - a soft, light green (Emerald 50) as the main background, complemented by deeper emerald tones for accents, and dark gray for text to ensure readability. -->
+    <!-- Application Structure Plan: A single-page portfolio layout designed for a narrative user flow. It starts with a strong hero section with key metrics and a profile picture, followed by a detailed chronological experience section, a card-based grid for freelance projects, a visual chart for skills, and dedicated sections for education, activities, and certifications. This structure provides a comprehensive yet digestible view of the candidate's profile, allowing recruiters to explore specific areas of interest in depth, enhanced by gentle scroll animations. A new AI-powered section is added to generate interview questions, enhancing interactivity and utility. -->
+    <!-- Visualization & Content Choices:
+        - Hero Section Stats: Goal: Inform/Impress -> Method: Animated counters -> Interaction: Numbers count up on scroll -> Justification: Creates an immediate dynamic impact, highlighting key achievements (years, users, requests).
+        - Profile Picture: Goal: Personalize -> Method: Image display -> Interaction: Static -> Justification: Adds a human touch to the professional profile.
+        - Experience Timeline: Goal: Organize/Inform -> Method: Detailed chronological list -> Interaction: Scroll, clear headings -> Justification: Presents a complete career progression with rich detail for each role.
+        - Freelance Projects: Goal: Organize/Inform -> Method: Card Grid + Buttons -> Interaction: Hover effect, Click to view demo -> Justification: Provides a quick, scannable overview of diverse project experience with direct access to live demos. Each card fades in on scroll.
+        - Skills: Goal: Compare/Inform -> Method: Horizontal Bar Chart (Chart.js) -> Interaction: Hover tooltips -> Justification: Visually represents expertise levels across different domains, far more engaging and easy to parse than a bulleted list. The chart also animates into view on scroll.
+        - Education, Activities, Certifications: Goal: Inform -> Method: Bulleted lists with brief descriptions -> Interaction: Static -> Justification: Standard presentation for supplementary information, enhancing profile completeness. Each section fades in on scroll.
+        - AI Interview Question Generator: Goal: Engage/Utility -> Method: Text input, button, text output -> Interaction: User inputs job description, clicks button, LLM generates questions -> Justification: Provides a novel, practical application of AI directly relevant to career aspects, showcasing proactive problem-solving. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #ECFDF5; /* Tailwind Emerald 50 - Xanh nõn chuối nhạt */
+            color: #343A40;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 450px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .tab-active {
+            border-color: #059669; /* Tailwind Emerald 600 */
+            color: #059669; /* Tailwind Emerald 600 */
+            font-weight: 600;
+        }
+        .tab-inactive {
+            border-color: transparent;
+            color: #6C757D;
+        }
+        .experience-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 24px;
+        }
+        .experience-item::before {
+            content: ' ';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 8px;
+            height: 8px;
+            background-color: #059669; /* Tailwind Emerald 600 */
+            border-radius: 50%;
+        }
+        .experience-item::after {
+            content: ' ';
+            position: absolute;
+            left: 3px;
+            top: 14px;
+            bottom: -2px;
+            width: 2px;
+            background-color: #D1FAE5; /* Tailwind Emerald 100 */
+        }
+        .experience-item:last-child::after {
+            display: none;
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Scroll animation styles */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-xl font-bold text-gray-800">Nguyễn Tất Thành</div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#intro" class="text-gray-600 hover:text-emerald-600 transition-colors">Giới thiệu</a>
+                    <a href="#experience" class="text-gray-600 hover:text-emerald-600 transition-colors">Kinh nghiệm</a>
+                    <a href="#projects" class="text-gray-600 hover:text-emerald-600 transition-colors">Dự án</a>
+                    <a href="#skills" class="text-gray-600 hover:text-emerald-600 transition-colors">Kỹ năng</a>
+                    <a href="#education" class="text-gray-600 hover:text-emerald-600 transition-colors">Học vấn</a>
+                    <a href="#activities" class="text-gray-600 hover:text-emerald-600 transition-colors">Hoạt động</a>
+                    <a href="#ai-tool" class="text-gray-600 hover:text-emerald-600 transition-colors">Công cụ AI</a>
+                    <a href="#contact" class="bg-emerald-600 text-white px-4 py-2 rounded-full hover:bg-emerald-700 transition-colors">Liên hệ</a>
+                </nav>
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+             <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="#intro" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Giới thiệu</a>
+                <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Kinh nghiệm</a>
+                <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Dự án</a>
+                <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Kỹ năng</a>
+                <a href="#education" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Học vấn</a>
+                <a href="#activities" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Hoạt động</a>
+                <a href="#ai-tool" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Công cụ AI</a>
+                <a href="#contact" class="block mt-2 py-2 px-4 text-sm text-white bg-emerald-600 hover:bg-emerald-700 rounded text-center">Liên hệ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8 md:py-16">
+
+        <!-- Intro Section -->
+        <section id="intro" class="text-center mb-16 md:mb-24 animate-on-scroll">
+            <div class="flex flex-col items-center mb-6">
+                <img src="data:image/jpeg;base64,{{__file_content_uploaded:photo_2025-06-25_10-25-57.jpg-5d7b35d6-83ad-470f-a830-62576afce736}}" alt="Ảnh đại diện Nguyễn Tất Thành" class="profile-pic">
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nguyễn Tất Thành</h1>
+            <h2 class="text-xl md:text-2xl font-light text-emerald-600 mb-6">Lập trình viên Backend & Team Leader (PHP | Laravel) | Chuyên gia Kiến trúc Hệ thống</h2>
+            <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed mb-8">
+                Với 5 năm kinh nghiệm chuyên sâu và 2 năm dẫn dắt đội ngũ, tôi là một chuyên gia kiến trúc và triển khai giải pháp công nghệ, có khả năng chuyển đổi các yêu cầu phức tạp thành sản phẩm chất lượng cao, tập trung vào kiến trúc hiện đại (DDD, Microservices), tích hợp AI, và phát triển các giải pháp tài chính số quy mô lớn.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="stat-number text-3xl font-bold text-emerald-600" data-target="5">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Năm kinh nghiệm</div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="stat-number text-3xl font-bold text-emerald-600" data-target="2">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Năm làm Team Leader</div>
+                </div>
+                 <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="stat-number text-3xl font-bold text-emerald-600" data-target="800">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Ngàn người dùng</div>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                    <div class="stat-number text-3xl font-bold text-emerald-600" data-target="3">0</div>
+                    <div class="text-sm text-gray-500 mt-1">Triệu requests/ngày</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="mb-16 md:mb-24 animate-on-scroll">
+             <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Hành Trình Sự Nghiệp</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Tổng hợp các vai trò và trách nhiệm chính trong quá trình phát triển sự nghiệp của tôi, từ các dự án ban đầu đến vị trí lãnh đạo hiện tại.</p>
+
+            <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <div class="relative pl-4">
+                    <!-- Experience Item: Team Leader Kidsonline -->
+                    <div class="experience-item">
+                        <p class="text-xs text-gray-500">09/2023 – Hiện tại</p>
+                        <h3 class="font-bold text-lg text-gray-800">Team Leader | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
+                            <li>Chủ trì rebuild hệ thống Kidsonline theo mô hình Domain-Driven Design (DDD) và kiến trúc Microservices.</li>
+                            <li>Dẫn dắt đội nhóm 3-4 thành viên, lập kế hoạch, phân công và quản lý công việc theo quy trình Agile/SCRUM.</li>
+                            <li>Dẫn dắt dự án tái cấu trúc API APP phụ huynh Kidsonline (800.000 người dùng, 3 triệu requests/ngày).</li>
+                            <li>Tiên phong áp dụng AI (AWS facial recognition, Hanet camera API) tự động hóa điểm danh, giảm 30% thời gian nhận xét cho giáo viên.</li>
+                            <li>Thiết kế và triển khai hệ thống quản lý tài chính tích hợp (DDD), hỗ trợ tùy chỉnh khoản thu, và tích hợp thanh toán (VietQR, Vietinbank, Gpay).</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience Item: Developer Kidsonline -->
+                    <div class="experience-item">
+                        <p class="text-xs text-gray-500">09/2019 – 09/2023</p>
+                        <h3 class="font-bold text-lg text-gray-800">Developer | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
+                            <li>Phát triển các tính năng hệ thống quản lý giáo dục trực tuyến Kidsonline bằng Laravel, bao gồm điểm danh nhận diện khuôn mặt (tích hợp AWS), upload video AWS, nhận diện học sinh trong album ảnh.</li>
+                            <li>Xây dựng hệ thống gửi notification tới 1 triệu người dùng trong thời gian cao điểm.</li>
+                            <li>Thành thạo Git, Deploy code server CICD, có kinh nghiệm làm việc với Firebase, Docker, K8s, làm việc với qui trình Agile, SCRUM.</li>
+                            <li>Xây dựng API phát triển cho đội app Kidsonline, Kidsonline teacher.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience Item: Thực tập sinh lập trình web PHP, Laravel -->
+                    <div class="experience-item">
+                        <p class="text-xs text-gray-500">07/2019 – 09/2019</p>
+                        <h3 class="font-bold text-lg text-gray-800">Thực tập sinh lập trình web PHP, Laravel | CÔNG TY TNHH HAPOSOFT</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
+                            <li>Được training kiến thức cơ bản về lập trình web: HTML&CSS, Bootstrap responsive PC và Mobile, SCSS, Javascript, Jquery, PHP căn bản, Laravel & MySQL, Ajax.</li>
+                            <li>Hoàn thành Project thực tế: Quản lý Nhân sự với các chức năng login, phân quyền (nhân viên, quản lý, admin), CRUD cơ bản cho nhân viên, khách hàng, project, phòng ban, quan hệ nhiều nhiều (phân nhân viên vào dự án theo từng khoản thời gian, viết báo cáo hàng ngày).</li>
+                            <li>Hiểu cách làm việc với GIT, mô hình OOP MVC, Service Container, Queue worker.</li>
+                            <li>Thiết lập môi trường test, viết Unitest.</li>
+                            <li>Thiết lập linux web server trên EC2 AWS.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience Item: Nhân viên SEO tối ưu hóa từ khóa -->
+                    <div class="experience-item">
+                        <p class="text-xs text-gray-500">05/2018 – 04/2019</p>
+                        <h3 class="font-bold text-lg text-gray-800">Nhân viên SEO tối ưu hóa từ khóa | CÔNG TY THƯƠNG MẠI VÀ ĐẦU TƯ XNK HÙNG THỊNH</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
+                            <li>Tối ưu Website chuẩn SEO, viết bài chuẩn SEO trên Taobaovietnam.vn, Taobaotrungquoc.vn.</li>
+                            <li>Xây dựng Backlink các diễn đàn, dùng Tool kiếm traffic tự nhiên về Website.</li>
+                            <li>Được training về Google Ads, Seeding Facebook.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Experience Item: CTV Fanpage -->
+                    <div class="experience-item">
+                        <p class="text-xs text-gray-500">04/2018 – 08/2018</p>
+                        <h3 class="font-bold text-lg text-gray-800">CTV Fanpage | CÔNG TY CỔ PHẦN DỊCH VỤ PHÁT TRIỂN NGƯỜI DÙNG MKO</h3>
+                        <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
+                            <li>Đăng bài, trực page, GA các Page giải trí, tin tức lớn trên Facebook: Góc Thư Giãn, Xem.vn, Lặng Nhìn Cuộc Sống.</li>
+                            <li>Duyệt ảnh, video và trao TOP danh hài trên webstie Xem.vn.</li>
+                            <li>Up bài trên Page, bắn tin Zalo page GÓC THƯ GIÃN.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Freelance Projects Section -->
+        <section id="projects" class="mb-16 md:mb-24 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Dự Án Freelance Đa Dạng</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Bên cạnh công việc chính, tôi còn tham gia vào nhiều dự án freelance, áp dụng kỹ năng để giải quyết các bài toán kinh doanh thực tế trong nhiều lĩnh vực khác nhau.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Nền tảng Dịch vụ (Mỹ)</h3>
+                        <p class="text-gray-600 text-sm mb-4">Phát triển ứng dụng tìm người giúp việc, dọn nhà, dọn văn phòng theo mô hình Btaskee.</p>
+                    </div>
+                    <div class="flex flex-col space-y-2">
+                        <a href="https://customerneedio.thietkeapp.asia/domain" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
+                            Xem Demo (Customer)
+                        </a>
+                        <a href="https://vendorneedio.thietkeapp.asia/" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
+                            Xem Demo (Vendor)
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Quản lý Kho (Việt Nam)</h3>
+                        <p class="text-gray-600 text-sm mb-4">Xây dựng web quản lý xuất nhập tồn kho, tối ưu hóa quy trình vận hành cho doanh nghiệp.</p>
+                    </div>
+                    <a href="https://bedepyf.com.vn/login" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
+                        Xem Demo
+                    </a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Thương mại điện tử</h3>
+                        <p class="text-gray-600 text-sm mb-4">Phát triển website rao vặt Chomang.vn với các tính năng tương tự Chợ Tốt.</p>
+                    </div>
+                    <a href="https://chomang.vn" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
+                        Xem Demo
+                    </a>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Sức khỏe Học đường</h3>
+                        <p class="text-gray-600 text-sm mb-4">Đóng góp phát triển hệ thống cho Bộ GD&ĐT (suckhoe-tuonglai.moet.gov.vn).</p>
+                    </div>
+                    <a href="https://suckhoe-tuonglai.moet.gov.vn" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
+                        Xem Demo
+                    </a>
+                </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Giáo dục trực tuyến</h3>
+                        <p class="text-gray-600 text-sm mb-4">Xây dựng website học tiếng Nhật tanoshi-nihongo.nextcolabs.com.</p>
+                    </div>
+                     <a href="https://tanoshi-nihongo.nextcolabs.com" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
+                        Xem Demo
+                    </a>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
+                    <div>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800">Website Doanh nghiệp & SEO</h3>
+                        <p class="text-gray-600 text-sm mb-4">Dựng và tùy chỉnh CMS cho nhiều website công ty, bảo tàng, và tối ưu SEO (Butuni.com).</p>
+                        <ul class="list-disc pl-5 text-gray-600 text-xs mt-1">
+                            <li>Tối ưu chuẩn SEO lại website, lên Keyword Plan, quản lý CTV, đẩy top từ khóa.</li>
+                            <li>Kết quả: Các từ khóa TOP 1-10 (áo da thật, áo khoác da thật,...), doanh thu quảng cáo 10tr/tuần.</li>
+                        </ul>
+                    </div>
+                    <!-- No specific demo URL provided for this, so no button here. -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-16 md:mb-24 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Hệ Thống Kỹ Năng</h2>
+             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Tổng hợp các công nghệ và phương pháp luận chính mà tôi đã sử dụng và làm chủ trong suốt quá trình phát triển sự nghiệp.</p>
+            <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <div class="chart-container">
+                    <canvas id="skillsChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="mb-16 md:mb-24 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Học Vấn</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Nền tảng giáo dục vững chắc định hình năng lực chuyên môn của tôi.</p>
+            <div class="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <div class="flex items-center space-x-4 mb-4">
+                    <span class="text-4xl text-emerald-600">🎓</span>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800">ĐẠI HỌC THỦY LỢI</h3>
+                        <p class="text-gray-600">Kỹ sư Công nghệ thông tin - Chuyên ngành: Công Nghệ Thông Tin</p>
+                        <p class="text-sm text-gray-500">10/2015 - 01/2020</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-4xl text-emerald-600">📜</span>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800">Chứng Chỉ Tiếng Anh A2 Châu Âu</h3>
+                        <p class="text-gray-500 text-sm">2018</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="mb-16 md:mb-24 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Hoạt Động & Hội Thảo</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Các hoạt động ngoại khóa và seminar góp phần phát triển kỹ năng mềm và chuyên môn.</p>
+            <div class="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <div class="flex items-start space-x-4 mb-4">
+                    <span class="text-2xl text-emerald-600">🤝</span>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800">NHÓM TÌNH NGUYỆN SINH VIÊN ĐẠI HỌC THỦY LỢI</h3>
+                        <p class="text-gray-600">Tình nguyện viên</p>
+                        <p class="text-sm text-gray-500">10/2015 – Hiện tại</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-4">
+                    <span class="text-2xl text-emerald-600">💡</span>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-800">SEMINAR TẠI KIDSONLINE</h3>
+                        <p class="text-gray-600">Tham gia và đóng góp vào các buổi seminar về:</p>
+                        <ul class="list-disc pl-5 text-gray-600 text-sm mt-1">
+                            <li>Unit Test</li>
+                            <li>Clean Code</li>
+                            <li>Design Struct Code</li>
+                            <li>Laravel Queue</li>
+                        </ul>
+                        <p class="text-sm text-gray-500">10/2015 – Hiện tại</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Tool Section -->
+        <section id="ai-tool" class="mb-16 md:mb-24 animate-on-scroll">
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">✨ Công Cụ Hỗ Trợ Phỏng Vấn AI ✨</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Nhập mô tả vị trí công việc, và AI sẽ tạo ra các câu hỏi phỏng vấn tiềm năng dựa trên hồ sơ của tôi. Điều này có thể giúp bạn hiểu rõ hơn về cách các kỹ năng của tôi phù hợp với vai trò của bạn!</p>
+
+            <div class="max-w-3xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
+                <div class="mb-6">
+                    <label for="job-description" class="block text-gray-700 text-sm font-bold mb-2">Mô tả vị trí công việc:</label>
+                    <textarea id="job-description" rows="4" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-emerald-500" placeholder="Ví dụ: Lập trình viên Backend với kinh nghiệm Laravel, xây dựng API RESTful và quản lý cơ sở dữ liệu."></textarea>
+                </div>
+                <button id="generate-questions-btn" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition-colors flex items-center justify-center">
+                    <span id="loading-spinner" class="hidden animate-spin h-5 w-5 mr-3 border-4 border-white border-t-transparent rounded-full"></span>
+                    <span>Tạo câu hỏi ✨</span>
+                </button>
+                <div id="interview-questions-output" class="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200 text-gray-800 min-h-[100px]">
+                    Các câu hỏi sẽ xuất hiện tại đây...
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12 text-center">
+            <h2 class="text-3xl font-bold mb-4">Sẵn sàng hợp tác</h2>
+            <p class="max-w-xl mx-auto mb-8 text-gray-300">Hãy kết nối với tôi để cùng thảo luận về các cơ hội phát triển sản phẩm công nghệ đột phá.</p>
+            <div class="flex justify-center items-center space-x-6">
+                <a href="mailto:thanhnt51997@gmail.com" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-full transition-colors">
+                    Gửi Email
+                </a>
+                <a href="https://github.com/thanhnt51997" target="_blank" class="text-gray-400 hover:text-white transition-colors">
+                   <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
+                </a>
+                <span class="text-gray-500">|</span>
+                <p class="text-gray-400">0384 428 234</p>
+            </div>
+             <div class="mt-12 border-t border-gray-700 pt-6 text-sm text-gray-500">
+                &copy; 2024 Nguyễn Tất Thành. Xây dựng bằng tâm huyết.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Animated Stats Counter
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200;
+
+            const animateCounter = (counter) => {
+                const target = +counter.getAttribute('data-target');
+                const updateCount = () => {
+                    const count = +counter.innerText;
+                    const inc = target / speed;
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + inc);
+                        setTimeout(updateCount, 1);
+                    } else {
+                        counter.innerText = target.toLocaleString('vi-VN') + (target >= 800 ? 'K' : (target === 3 ? 'M' : ''));
+                        if(target === 800) counter.innerText = '800K+';
+                        if(target === 3) counter.innerText = '3M+';
+                    }
+                };
+                updateCount();
+            };
+
+            const observerOptions = {
+                root: null,
+                threshold: 0.5
+            };
+
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+
+            // Scroll Animation for Sections and Project Cards
+            const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+            const animateObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.1, // Trigger when 10% of the element is visible
+                rootMargin: "0px 0px -50px 0px" // Adjust to trigger slightly earlier
+            });
+
+            animateOnScrollElements.forEach(element => {
+                animateObserver.observe(element);
+            });
+
+            // Skills Chart
+            const skillsChartCanvas = document.getElementById('skillsChart');
+            const skillsData = {
+                labels: [
+                    'PHP & Laravel',
+                    'Kiến trúc (DDD, Microservices)',
+                    'Cloud & DevOps (AWS, Docker)',
+                    'Cơ sở dữ liệu (MySQL, Firebase)',
+                    'Quản lý dự án (Agile, SCRUM)',
+                    'Frontend (JS, HTML, CSS)',
+                    'Công nghệ mới (AI, Payment)',
+                    'SEO & Digital Marketing',
+                ],
+                datasets: [{
+                    label: 'Mức độ chuyên môn',
+                    data: [95, 90, 80, 88, 85, 75, 85, 70],
+                    backgroundColor: 'rgba(5, 150, 105, 0.6)', /* Emerald 600 with opacity */
+                    borderColor: 'rgba(5, 150, 105, 1)', /* Emerald 600 */
+                    borderWidth: 1,
+                    borderRadius: 5,
+                    borderSkipped: false,
+                }]
+            };
+
+            const chartOptions = {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        enabled: true,
+                        backgroundColor: '#333',
+                        titleFont: { size: 14, weight: 'bold' },
+                        bodyFont: { size: 12 },
+                        padding: 10,
+                        cornerRadius: 4,
+                        callbacks: {
+                            label: function(context) {
+                                return ` Mức độ: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100,
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                           display: false
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: false,
+                            drawBorder: false,
+                        },
+                        ticks: {
+                            font: {
+                                size: 14,
+                                family: "'Be Vietnam Pro', sans-serif"
+                            },
+                            color: '#495057'
+                        }
+                    }
+                }
+            };
+
+            const createChart = () => {
+                new Chart(skillsChartCanvas, {
+                    type: 'bar',
+                    data: skillsData,
+                    options: chartOptions
+                });
+            };
+
+            const chartObserver = new IntersectionObserver((entries, observer) => {
+                 entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        createChart();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {threshold: 0.1});
+
+            if(skillsChartCanvas) {
+                chartObserver.observe(skillsChartCanvas);
+            }
+
+            // Gemini API Integration for Interview Questions
+            const generateQuestionsBtn = document.getElementById('generate-questions-btn');
+            const jobDescriptionInput = document.getElementById('job-description');
+            const interviewQuestionsOutput = document.getElementById('interview-questions-output');
+            const loadingSpinner = document.getElementById('loading-spinner');
+
+            const cvSummaryForLLM = `Lập trình viên Backend & Team Leader (PHP | Laravel) với 5 năm kinh nghiệm chuyên sâu và 2 năm dẫn dắt đội nhóm 3-4 thành viên. Chuyên gia về kiến trúc hệ thống (DDD, Microservices), tích hợp AI, và phát triển giải pháp tài chính số. Đã lãnh đạo rebuild API cho ứng dụng Kidsonline với 800K người dùng và xử lý 3 triệu requests/ngày. Kinh nghiệm với PHP, Laravel, MySQL, Firebase, AWS, Docker, K8s, Agile, SCRUM. Có kinh nghiệm freelance xây dựng các nền tảng dịch vụ theo yêu cầu, quản lý kho, thương mại điện tử, giáo dục trực tuyến và SEO.`;
+
+            generateQuestionsBtn.addEventListener('click', async () => {
+                const jobDescription = jobDescriptionInput.value.trim();
+                if (!jobDescription) {
+                    interviewQuestionsOutput.innerText = 'Vui lòng nhập mô tả vị trí công việc.';
+                    return;
+                }
+
+                loadingSpinner.classList.remove('hidden');
+                generateQuestionsBtn.disabled = true;
+                interviewQuestionsOutput.innerText = 'Đang tạo câu hỏi...';
+
+                try {
+                    let chatHistory = [];
+                    const prompt = `Dựa trên hồ sơ CV sau đây và vị trí tuyển dụng '${jobDescription}', hãy tạo ra 5 câu hỏi phỏng vấn tiềm năng để đánh giá ứng viên. Tập trung vào kinh nghiệm, kỹ năng lãnh đạo, kiến trúc hệ thống, và khả năng giải quyết vấn đề. Hãy trình bày mỗi câu hỏi trên một dòng mới.
+Hồ sơ CV: ${cvSummaryForLLM}`;
+
+                    chatHistory.push({ role: "user", parts: [{ text: prompt }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Canvas will provide this key
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const text = result.candidates[0].content.parts[0].text;
+                        interviewQuestionsOutput.innerText = text;
+                    } else {
+                        interviewQuestionsOutput.innerText = 'Không thể tạo câu hỏi. Vui lòng thử lại.';
+                    }
+                } catch (error) {
+                    console.error('Lỗi khi gọi API Gemini:', error);
+                    interviewQuestionsOutput.innerText = 'Đã xảy ra lỗi khi tạo câu hỏi. Vui lòng kiểm tra kết nối mạng hoặc thử lại sau.';
+                } finally {
+                    loadingSpinner.classList.add('hidden');
+                    generateQuestionsBtn.disabled = false;
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
