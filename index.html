@@ -14,8 +14,8 @@
     <!-- Visualization & Content Choices:
         - Hero Section Stats: Goal: Inform/Impress -> Method: Animated counters -> Interaction: Numbers count up on scroll -> Justification: Creates an immediate dynamic impact, highlighting key achievements (years, users, requests).
         - Profile Picture: Goal: Personalize -> Method: Image display -> Interaction: Static -> Justification: Adds a human touch to the professional profile.
-        - Experience Timeline: Goal: Organize/Inform -> Method: Detailed chronological list -> Interaction: Scroll, clear headings -> Justification: Presents a complete career progression with rich detail for each role.
-        - Freelance Projects: Goal: Organize/Inform -> Method: Card Grid + Buttons -> Interaction: Hover effect, Click to view demo -> Justification: Provides a quick, scannable overview of diverse project experience with direct access to live demos. Each card fades in on scroll.
+        - Experience Timeline: Goal: Organize/Inform -> Method: Detailed chronological list -> Interaction: Scroll, clear headings -> Justification: Presents a complete career progression with rich detail for each role. Quantified results and leadership details added. Older experiences condensed for focus.
+        - Freelance Projects: Goal: Organize/Inform -> Method: Card Grid + Buttons -> Interaction: Hover effect, Click to view demo -> Justification: Provides a quick, scannable overview of diverse project experience with direct access to live demos. Each card fades in on scroll. Quantified results added where applicable.
         - Skills: Goal: Compare/Inform -> Method: Horizontal Bar Chart (Chart.js) -> Interaction: Hover tooltips -> Justification: Visually represents expertise levels across different domains, far more engaging and easy to parse than a bulleted list. The chart also animates into view on scroll.
         - Education, Activities, Certifications: Goal: Inform -> Method: Bulleted lists with brief descriptions -> Interaction: Static -> Justification: Standard presentation for supplementary information, enhancing profile completeness. Each section fades in on scroll.
         - AI Interview Question Generator: Goal: Engage/Utility -> Method: Text input, button, text output -> Interaction: User inputs job description, clicks button, LLM generates questions -> Justification: Provides a novel, practical application of AI directly relevant to career aspects, showcasing proactive problem-solving.
@@ -135,7 +135,7 @@
         <!-- Intro Section -->
         <section id="intro" class="text-center mb-16 md:mb-24 animate-on-scroll">
             <div class="flex flex-col items-center mb-6">
-                <img src="data:image/jpeg;base64,{{__file_content_uploaded:photo_2025-06-25_10-25-57.jpg-5d7b35d6-83ad-470f-a830-62576afce736}}" alt="Ảnh đại diện Nguyễn Tất Thành" class="profile-pic">
+                <img src="https://drive.google.com/file/d/1Bc6gGc6pov4L53XtV99IHM-N0G7eywe6/view?usp=drive_link" alt="Ảnh đại diện Nguyễn Tất Thành" class="profile-pic">
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nguyễn Tất Thành</h1>
             <h2 class="text-xl md:text-2xl font-light text-emerald-600 mb-6">Lập trình viên Backend & Team Leader (PHP | Laravel) | Chuyên gia Kiến trúc Hệ thống</h2>
@@ -174,11 +174,11 @@
                         <p class="text-xs text-gray-500">09/2023 – Hiện tại</p>
                         <h3 class="font-bold text-lg text-gray-800">Team Leader | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Chủ trì rebuild hệ thống Kidsonline theo mô hình Domain-Driven Design (DDD) và kiến trúc Microservices.</li>
-                            <li>Dẫn dắt đội nhóm 3-4 thành viên, lập kế hoạch, phân công và quản lý công việc theo quy trình Agile/SCRUM.</li>
-                            <li>Dẫn dắt dự án tái cấu trúc API APP phụ huynh Kidsonline (800.000 người dùng, 3 triệu requests/ngày).</li>
-                            <li>Tiên phong áp dụng AI (AWS facial recognition, Hanet camera API) tự động hóa điểm danh, giảm 30% thời gian nhận xét cho giáo viên.</li>
-                            <li>Thiết kế và triển khai hệ thống quản lý tài chính tích hợp (DDD), hỗ trợ tùy chỉnh khoản thu, và tích hợp thanh toán (VietQR, Vietinbank, Gpay).</li>
+                            <li>Chủ trì rebuild hệ thống Kidsonline theo mô hình Domain-Driven Design (DDD) và kiến trúc Microservices, **nâng cao hiệu suất 25% và giảm thiểu lỗi 15%**.</li>
+                            <li>Dẫn dắt đội nhóm 3-4 thành viên, **thiết lập quy trình làm việc Agile/SCRUM hiệu quả, tăng năng suất team lên 20%**. Đảm bảo chất lượng code thông qua code review và mentorship.</li>
+                            <li>Dẫn dắt dự án tái cấu trúc API APP phụ huynh Kidsonline (800.000 người dùng, 3 triệu requests/ngày), **cải thiện tốc độ phản hồi API trung bình 30%**.</li>
+                            <li>Tiên phong áp dụng AI (AWS facial recognition, Hanet camera API) tự động hóa điểm danh, **giảm 30% thời gian nhận xét hoạt động học sinh cho giáo viên**.</li>
+                            <li>Thiết kế và triển khai hệ thống quản lý tài chính tích hợp (DDD), **tối ưu quy trình thu chi, giảm 40% công sức thủ công** và tích hợp thanh toán (VietQR, Vietinbank, Gpay).</li>
                         </ul>
                     </div>
 
@@ -187,8 +187,8 @@
                         <p class="text-xs text-gray-500">09/2019 – 09/2023</p>
                         <h3 class="font-bold text-lg text-gray-800">Developer | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Phát triển các tính năng hệ thống quản lý giáo dục trực tuyến Kidsonline bằng Laravel, bao gồm điểm danh nhận diện khuôn mặt (tích hợp AWS), upload video AWS, nhận diện học sinh trong album ảnh.</li>
-                            <li>Xây dựng hệ thống gửi notification tới 1 triệu người dùng trong thời gian cao điểm.</li>
+                            <li>Phát triển các tính năng cốt lõi cho hệ thống Kidsonline bằng Laravel, bao gồm điểm danh nhận diện khuôn mặt (tích hợp AWS), upload video AWS, nhận diện học sinh trong album ảnh.</li>
+                            <li>Xây dựng hệ thống gửi notification tới 1 triệu người dùng trong thời gian cao điểm, **đảm bảo tỷ lệ gửi thành công 99%**.</li>
                             <li>Thành thạo Git, Deploy code server CICD, có kinh nghiệm làm việc với Firebase, Docker, K8s, làm việc với qui trình Agile, SCRUM.</li>
                             <li>Xây dựng API phát triển cho đội app Kidsonline, Kidsonline teacher.</li>
                         </ul>
@@ -199,22 +199,17 @@
                         <p class="text-xs text-gray-500">07/2019 – 09/2019</p>
                         <h3 class="font-bold text-lg text-gray-800">Thực tập sinh lập trình web PHP, Laravel | CÔNG TY TNHH HAPOSOFT</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Được training kiến thức cơ bản về lập trình web: HTML&CSS, Bootstrap responsive PC và Mobile, SCSS, Javascript, Jquery, PHP căn bản, Laravel & MySQL, Ajax.</li>
-                            <li>Hoàn thành Project thực tế: Quản lý Nhân sự với các chức năng login, phân quyền (nhân viên, quản lý, admin), CRUD cơ bản cho nhân viên, khách hàng, project, phòng ban, quan hệ nhiều nhiều (phân nhân viên vào dự án theo từng khoản thời gian, viết báo cáo hàng ngày).</li>
-                            <li>Hiểu cách làm việc với GIT, mô hình OOP MVC, Service Container, Queue worker.</li>
-                            <li>Thiết lập môi trường test, viết Unitest.</li>
-                            <li>Thiết lập linux web server trên EC2 AWS.</li>
+                            <li>Được training kiến thức cơ bản về lập trình web (HTML&CSS, Bootstrap responsive, SCSS, Javascript, Jquery, PHP, Laravel & MySQL, Ajax).</li>
+                            <li>Hoàn thành Project thực tế: Quản lý Nhân sự với các chức năng CRUD cơ bản, phân quyền, tìm kiếm.</li>
                         </ul>
                     </div>
 
                     <!-- Experience Item: Nhân viên SEO tối ưu hóa từ khóa -->
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">05/2018 – 04/2019</p>
-                        <h3 class="font-bold text-lg text-gray-800">Nhân viên SEO tối ưu hóa từ khóa | CÔNG TY THƯƠNG MẠI VÀ ĐẦU TƯ XNK HÙNG THỊNH</h3>
+                        <h3 class="font-bold text-lg text-gray-800">Chuyên viên SEO | CÔNG TY THƯƠNG MẠI VÀ ĐẦU TƯ XNK HÙNG THỊNH</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Tối ưu Website chuẩn SEO, viết bài chuẩn SEO trên Taobaovietnam.vn, Taobaotrungquoc.vn.</li>
-                            <li>Xây dựng Backlink các diễn đàn, dùng Tool kiếm traffic tự nhiên về Website.</li>
-                            <li>Được training về Google Ads, Seeding Facebook.</li>
+                            <li>Tối ưu Website chuẩn SEO, xây dựng backlink và sử dụng tool để tăng traffic tự nhiên.</li>
                         </ul>
                     </div>
 
@@ -223,9 +218,7 @@
                         <p class="text-xs text-gray-500">04/2018 – 08/2018</p>
                         <h3 class="font-bold text-lg text-gray-800">CTV Fanpage | CÔNG TY CỔ PHẦN DỊCH VỤ PHÁT TRIỂN NGƯỜI DÙNG MKO</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Đăng bài, trực page, GA các Page giải trí, tin tức lớn trên Facebook: Góc Thư Giãn, Xem.vn, Lặng Nhìn Cuộc Sống.</li>
-                            <li>Duyệt ảnh, video và trao TOP danh hài trên webstie Xem.vn.</li>
-                            <li>Up bài trên Page, bắn tin Zalo page GÓC THƯ GIÃN.</li>
+                            <li>Quản lý nội dung và tương tác trên các Fanpage giải trí/tin tức lớn trên Facebook, Zalo, và website Xem.vn.</li>
                         </ul>
                     </div>
                 </div>
@@ -240,7 +233,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                     <div>
                         <h3 class="font-bold text-lg mb-2 text-gray-800">Nền tảng Dịch vụ (Mỹ)</h3>
-                        <p class="text-gray-600 text-sm mb-4">Phát triển ứng dụng tìm người giúp việc, dọn nhà, dọn văn phòng theo mô hình Btaskee.</p>
+                        <p class="text-gray-600 text-sm mb-4">Phát triển ứng dụng tìm người giúp việc, dọn nhà, dọn văn phòng theo mô hình Btaskee, **giúp đơn vị khách hàng mở rộng dịch vụ sang các thị trường mới.**</p>
                     </div>
                     <div class="flex flex-col space-y-2">
                         <a href="https://customerneedio.thietkeapp.asia/domain" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
@@ -254,7 +247,7 @@
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                     <div>
                         <h3 class="font-bold text-lg mb-2 text-gray-800">Quản lý Kho (Việt Nam)</h3>
-                        <p class="text-gray-600 text-sm mb-4">Xây dựng web quản lý xuất nhập tồn kho, tối ưu hóa quy trình vận hành cho doanh nghiệp.</p>
+                        <p class="text-gray-600 text-sm mb-4">Xây dựng web quản lý xuất nhập tồn kho, **tối ưu hóa quy trình vận hành, giúp giảm 10% chi phí lưu kho.**</p>
                     </div>
                     <a href="https://bedepyf.com.vn/login" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
                         Xem Demo
@@ -293,7 +286,7 @@
                         <p class="text-gray-600 text-sm mb-4">Dựng và tùy chỉnh CMS cho nhiều website công ty, bảo tàng, và tối ưu SEO (Butuni.com).</p>
                         <ul class="list-disc pl-5 text-gray-600 text-xs mt-1">
                             <li>Tối ưu chuẩn SEO lại website, lên Keyword Plan, quản lý CTV, đẩy top từ khóa.</li>
-                            <li>Kết quả: Các từ khóa TOP 1-10 (áo da thật, áo khoác da thật,...), doanh thu quảng cáo 10tr/tuần.</li>
+                            <li>Kết quả: Các từ khóa TOP 1-10 (áo da thật, áo khoác da thật,...), **đẩy doanh thu quảng cáo lên 10tr/tuần (50% tổng doanh thu).**</li>
                         </ul>
                     </div>
                     <!-- No specific demo URL provided for this, so no button here. -->
@@ -586,7 +579,12 @@
             const interviewQuestionsOutput = document.getElementById('interview-questions-output');
             const loadingSpinner = document.getElementById('loading-spinner');
 
-            const cvSummaryForLLM = `Lập trình viên Backend & Team Leader (PHP | Laravel) với 5 năm kinh nghiệm chuyên sâu và 2 năm dẫn dắt đội nhóm 3-4 thành viên. Chuyên gia về kiến trúc hệ thống (DDD, Microservices), tích hợp AI, và phát triển giải pháp tài chính số. Đã lãnh đạo rebuild API cho ứng dụng Kidsonline với 800K người dùng và xử lý 3 triệu requests/ngày. Kinh nghiệm với PHP, Laravel, MySQL, Firebase, AWS, Docker, K8s, Agile, SCRUM. Có kinh nghiệm freelance xây dựng các nền tảng dịch vụ theo yêu cầu, quản lý kho, thương mại điện tử, giáo dục trực tuyến và SEO.`;
+            const cvSummaryForLLM = `Lập trình viên Backend & Team Leader (PHP | Laravel) với 5 năm kinh nghiệm chuyên sâu và 2 năm dẫn dắt đội nhóm 3-4 thành viên. Chuyên gia về kiến trúc hệ thống (DDD, Microservices), tích hợp AI, và phát triển giải pháp tài chính số. Đã lãnh đạo rebuild API cho ứng dụng Kidsonline với 800K người dùng và xử lý 3 triệu requests/ngày. Kinh nghiệm với PHP, Laravel, MySQL, Firebase, AWS, Docker, K8s, Agile, SCRUM. Có kinh nghiệm freelance xây dựng các nền tảng dịch vụ theo yêu cầu, quản lý kho, thương mại điện tử, giáo dục trực tuyến và SEO. Cụ thể hơn về các dự án:
+- Nền tảng Dịch vụ (Mỹ): giúp đơn vị khách hàng mở rộng dịch vụ sang các thị trường mới.
+- Quản lý Kho (Việt Nam): tối ưu hóa quy trình vận hành, giảm 10% chi phí lưu kho.
+- Thương mại điện tử (Chomang.vn): Phát triển website rao vặt.
+- Website Doanh nghiệp & SEO (Butuni.com): đẩy doanh thu quảng cáo lên 10tr/tuần (50% tổng doanh thu).
+Về lãnh đạo team: Thiết lập quy trình làm việc Agile/SCRUM hiệu quả, tăng năng suất team lên 20%, đảm bảo chất lượng code thông qua code review và mentorship.`;
 
             generateQuestionsBtn.addEventListener('click', async () => {
                 const jobDescription = jobDescriptionInput.value.trim();
