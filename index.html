@@ -9,18 +9,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: "Fresh Green Harmony" - a soft, light green (Emerald 50) as the main background, complemented by deeper emerald tones for accents, and dark gray for text to ensure readability. -->
-    <!-- Application Structure Plan: A single-page portfolio layout designed for a narrative user flow. It starts with a strong hero section with key metrics and a profile picture, followed by a detailed chronological experience section, a card-based grid for freelance projects, a visual chart for skills, and dedicated sections for education, activities, and certifications. A new AI-powered section is added to generate interview questions, enhancing interactivity and utility. Finally, a "Desired Salary" section is included to clearly state expectations. This structure provides a comprehensive yet digestible view of the candidate's profile, allowing recruiters to explore specific areas of interest in depth, enhanced by gentle scroll animations. -->
-    <!-- Visualization & Content Choices:
-        - Hero Section Stats: Goal: Inform/Impress -> Method: Animated counters -> Interaction: Numbers count up on scroll -> Justification: Creates an immediate dynamic impact, highlighting key achievements (years, users, requests).
-        - Profile Picture: Goal: Personalize -> Method: Image display -> Interaction: Static -> Justification: Adds a human touch to the professional profile.
-        - Experience Timeline: Goal: Organize/Inform -> Method: Detailed chronological list -> Interaction: Scroll, clear headings -> Justification: Presents a complete career progression with rich detail for each role. Quantified results and leadership details added. Older experiences condensed for focus.
-        - Freelance Projects: Goal: Organize/Inform -> Method: Card Grid + Buttons -> Interaction: Hover effect, Click to view demo -> Justification: Provides a quick, scannable overview of diverse project experience with direct access to live demos. Each card fades in on scroll. Quantified results added where applicable.
-        - Skills: Goal: Compare/Inform -> Method: Horizontal Bar Chart (Chart.js) -> Interaction: Hover tooltips -> Justification: Visually represents expertise levels across different domains, far more engaging and easy to parse than a bulleted list. The chart also animates into view on scroll.
-        - Education, Activities, Certifications: Goal: Inform -> Method: Bulleted lists with brief descriptions -> Interaction: Static -> Justification: Standard presentation for supplementary information, enhancing profile completeness. Each section fades in on scroll.
-        - AI Interview Question Generator: Goal: Engage/Utility -> Method: Text input, button, text output -> Interaction: User inputs job description, clicks button, LLM generates questions -> Justification: Provides a novel, practical application of AI directly relevant to career aspects, showcasing proactive problem-solving.
-        - Desired Salary: Goal: Inform -> Method: Clear text display -> Interaction: Static -> Justification: Directly communicates salary expectations in a concise manner. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Be Vietnam Pro', sans-serif;
@@ -92,7 +80,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header -->
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
@@ -105,7 +92,6 @@
                     <a href="#education" class="text-gray-600 hover:text-emerald-600 transition-colors">Học vấn</a>
                     <a href="#activities" class="text-gray-600 hover:text-emerald-600 transition-colors">Hoạt động</a>
                     <a href="#ai-tool" class="text-gray-600 hover:text-emerald-600 transition-colors">Công cụ AI</a>
-                    <a href="#desired-salary" class="text-gray-600 hover:text-emerald-600 transition-colors">Mức lương mong muốn</a>
                     <a href="#contact" class="bg-emerald-600 text-white px-4 py-2 rounded-full hover:bg-emerald-700 transition-colors">Liên hệ</a>
                 </nav>
                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md">
@@ -114,8 +100,7 @@
                     </svg>
                 </button>
             </div>
-             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4">
+             <div id="mobile-menu" class="hidden md:hidden mt-4">
                 <a href="#intro" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Giới thiệu</a>
                 <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Kinh nghiệm</a>
                 <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Dự án</a>
@@ -123,22 +108,36 @@
                 <a href="#education" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Học vấn</a>
                 <a href="#activities" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Hoạt động</a>
                 <a href="#ai-tool" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Công cụ AI</a>
-                <a href="#desired-salary" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Mức lương mong muốn</a>
                 <a href="#contact" class="block mt-2 py-2 px-4 text-sm text-white bg-emerald-600 hover:bg-emerald-700 rounded text-center">Liên hệ</a>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="container mx-auto px-6 py-8 md:py-16">
 
-        <!-- Intro Section -->
         <section id="intro" class="text-center mb-16 md:mb-24 animate-on-scroll">
             <div class="flex flex-col items-center mb-6">
                 <img src="./avatar.jpg" alt="Ảnh đại diện Nguyễn Tất Thành" class="profile-pic">
             </div>
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nguyễn Tất Thành</h1>
             <h2 class="text-xl md:text-2xl font-light text-emerald-600 mb-6">Lập trình viên Backend & Team Leader (PHP | Laravel) | Chuyên gia Kiến trúc Hệ thống</h2>
+            
+            <div class="flex justify-center items-center gap-x-6 gap-y-2 flex-wrap mb-6 text-lg">
+                <a href="https://github.com/thanhnt51997" target="_blank" class="flex items-center gap-1 text-gray-700 hover:text-emerald-600 transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
+                    <span>GitHub</span>
+                </a>
+                <span class="text-gray-400 hidden md:inline">|</span>
+                <a href="https://www.linkedin.com/in/[your-linkedin-profile]" target="_blank" class="flex items-center gap-1 text-gray-700 hover:text-emerald-600 transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.783-1.75-1.75s.784-1.75 1.75-1.75 1.75.783 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-1.329-.024-3.037-1.85-3.037-1.85 0-2.136 1.445-2.136 2.942v5.699h-3v-11h2.887v1.316h.04c.4-.759 1.37-1.55 2.847-1.55 3.04 0 3.601 1.998 3.601 4.585v6.65h-3z"></path></svg>
+                    <span>LinkedIn (Cần cập nhật)</span>
+                </a>
+                <span class="text-gray-400 hidden md:inline">|</span>
+                <a href="mailto:thanhnt51997@gmail.com" class="flex items-center gap-1 text-gray-700 hover:text-emerald-600 transition-colors">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg>
+                    <span>thanhnt51997@gmail.com</span>
+                </a>
+            </div>
             <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed mb-8">
                 Với 5 năm kinh nghiệm chuyên sâu và 2 năm dẫn dắt đội ngũ, tôi là một chuyên gia kiến trúc và triển khai giải pháp công nghệ, có khả năng chuyển đổi các yêu cầu phức tạp thành sản phẩm chất lượng cao, tập trung vào kiến trúc hiện đại (DDD, Microservices), tích hợp AI, và phát triển các giải pháp tài chính số quy mô lớn.
             </p>
@@ -162,14 +161,12 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience" class="mb-16 md:mb-24 animate-on-scroll">
              <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Hành Trình Sự Nghiệp</h2>
             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Tổng hợp các vai trò và trách nhiệm chính trong quá trình phát triển sự nghiệp của tôi, từ các dự án ban đầu đến vị trí lãnh đạo hiện tại.</p>
 
             <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
                 <div class="relative pl-4">
-                    <!-- Experience Item: Team Leader Kidsonline -->
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">09/2023 – Hiện tại</p>
                         <h3 class="font-bold text-lg text-gray-800">Team Leader | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
@@ -182,7 +179,6 @@
                         </ul>
                     </div>
 
-                    <!-- Experience Item: Developer Kidsonline -->
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">09/2019 – 09/2023</p>
                         <h3 class="font-bold text-lg text-gray-800">Developer | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
@@ -194,7 +190,6 @@
                         </ul>
                     </div>
 
-                    <!-- Experience Item: Thực tập sinh lập trình web PHP, Laravel -->
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">07/2019 – 09/2019</p>
                         <h3 class="font-bold text-lg text-gray-800">Thực tập sinh lập trình web PHP, Laravel | CÔNG TY TNHH HAPOSOFT</h3>
@@ -204,28 +199,21 @@
                         </ul>
                     </div>
 
-                    <!-- Experience Item: Nhân viên SEO tối ưu hóa từ khóa -->
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">05/2018 – 04/2019</p>
-                        <h3 class="font-bold text-lg text-gray-800">Chuyên viên SEO | CÔNG TY THƯƠNG MẠI VÀ ĐẦU TƯ XNK HÙNG THỊNH</h3>
-                        <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Tối ưu Website chuẩn SEO, xây dựng backlink và sử dụng tool để tăng traffic tự nhiên.</li>
-                        </ul>
-                    </div>
+                        <h3 class="font-bold text-lg text-gray-800">Chuyên viên SEO</h3>
+                        <p class="text-gray-700 mt-1">CÔNG TY THƯƠNG MẠI VÀ ĐẦU TƯ XNK HÙNG THỊNH</p>
+                        </div>
 
-                    <!-- Experience Item: CTV Fanpage -->
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">04/2018 – 08/2018</p>
-                        <h3 class="font-bold text-lg text-gray-800">CTV Fanpage | CÔNG TY CỔ PHẦN DỊCH VỤ PHÁT TRIỂN NGƯỜI DÙNG MKO</h3>
-                        <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Quản lý nội dung và tương tác trên các Fanpage giải trí/tin tức lớn trên Facebook, Zalo, và website Xem.vn.</li>
-                        </ul>
+                        <h3 class="font-bold text-lg text-gray-800">CTV Fanpage</h3>
+                        <p class="text-gray-700 mt-1">CÔNG TY CỔ PHẦN DỊCH VỤ PHÁT TRIỂN NGƯỜI DÙNG MKO</p>
+                        </div>
                     </div>
-                </div>
             </div>
         </section>
 
-        <!-- Freelance Projects Section -->
         <section id="projects" class="mb-16 md:mb-24 animate-on-scroll">
             <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Dự Án Freelance Đa Dạng</h2>
             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Bên cạnh công việc chính, tôi còn tham gia vào nhiều dự án freelance, áp dụng kỹ năng để giải quyết các bài toán kinh doanh thực tế trong nhiều lĩnh vực khác nhau.</p>
@@ -289,12 +277,10 @@
                             <li>Kết quả: Các từ khóa TOP 1-10 (áo da thật, áo khoác da thật,...), **đẩy doanh thu quảng cáo lên 10tr/tuần (50% tổng doanh thu).**</li>
                         </ul>
                     </div>
-                    <!-- No specific demo URL provided for this, so no button here. -->
-                </div>
+                    </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills" class="mb-16 md:mb-24 animate-on-scroll">
             <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Hệ Thống Kỹ Năng</h2>
              <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Tổng hợp các công nghệ và phương pháp luận chính mà tôi đã sử dụng và làm chủ trong suốt quá trình phát triển sự nghiệp.</p>
@@ -305,7 +291,6 @@
             </div>
         </section>
 
-        <!-- Education Section -->
         <section id="education" class="mb-16 md:mb-24 animate-on-scroll">
             <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Học Vấn</h2>
             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Nền tảng giáo dục vững chắc định hình năng lực chuyên môn của tôi.</p>
@@ -321,14 +306,13 @@
                 <div class="flex items-center space-x-4">
                     <span class="text-4xl text-emerald-600">📜</span>
                     <div>
-                        <h3 class="font-bold text-lg text-gray-800">Chứng Chỉ Tiếng Anh A2 Châu Âu</h3>
-                        <p class="text-gray-500 text-sm">2018</p>
+                        <h3 class="font-bold text-lg text-gray-800">Ngoại ngữ</h3>
+                        <p class="text-gray-600">Tiếng Anh: Đọc hiểu tốt tài liệu chuyên ngành.</p>
                     </div>
                 </div>
-            </div>
+                </div>
         </section>
 
-        <!-- Activities Section -->
         <section id="activities" class="mb-16 md:mb-24 animate-on-scroll">
             <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Hoạt Động & Hội Thảo</h2>
             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Các hoạt động ngoại khóa và seminar góp phần phát triển kỹ năng mềm và chuyên môn.</p>
@@ -358,7 +342,6 @@
             </div>
         </section>
 
-        <!-- AI Tool Section -->
         <section id="ai-tool" class="mb-16 md:mb-24 animate-on-scroll">
             <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">✨ Công Cụ Hỗ Trợ Phỏng Vấn AI ✨</h2>
             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Nhập mô tả vị trí công việc, và AI sẽ tạo ra các câu hỏi phỏng vấn tiềm năng dựa trên hồ sơ của tôi. Điều này có thể giúp bạn hiểu rõ hơn về cách các kỹ năng của tôi phù hợp với vai trò của bạn!</p>
@@ -378,19 +361,8 @@
             </div>
         </section>
 
-        <!-- Desired Salary Section -->
-<!--         <section id="desired-salary" class="mb-16 md:mb-24 animate-on-scroll">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Mức Lương Mong Muốn</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Mức lương mong muốn phản ánh kinh nghiệm, chuyên môn và giá trị tôi có thể mang lại cho tổ chức của bạn.</p>
-            <div class="max-w-xl mx-auto bg-emerald-600 text-white rounded-xl shadow-lg p-6 md:p-8 text-center">
-                <p class="text-4xl font-bold mb-2">$15 - $28/giờ</p>
-                <p class="text-lg">Hoặc theo thỏa thuận dựa trên giá trị đóng góp và gói phúc lợi tổng thể.</p>
-            </div>
-        </section> -->
+        </main>
 
-    </main>
-
-    <!-- Footer / Contact -->
     <footer id="contact" class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-12 text-center">
             <h2 class="text-3xl font-bold mb-4">Sẵn sàng hợp tác</h2>
