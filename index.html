@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nguyễn Tất Thành - Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm. Chuyên gia kiến trúc hệ thống (DDD, Microservices), AI Integration, và giải pháp tài chính số quy mô lớn (800K users, 3M requests/day).">
+    <meta name="description" id="meta-description" content="Nguyễn Tất Thành - Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm. Chuyên gia kiến trúc hệ thống (DDD, Microservices), AI Integration, và giải pháp tài chính số quy mô lớn (800K users, 3M requests/day).">
     <meta name="keywords" content="Laravel Developer, PHP Team Leader, Backend Developer, DDD, Microservices, System Architecture, AI Integration, Vietnam">
     <meta name="author" content="Nguyễn Tất Thành">
     
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Nguyễn Tất Thành - Team Leader Backend & System Architect">
-    <meta property="og:description" content="Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm, chuyên gia kiến trúc hệ thống, AI Integration, xử lý 800K users và 3M requests/day">
+    <meta property="og:title" id="og-title" content="Nguyễn Tất Thành - Team Leader Backend & System Architect">
+    <meta property="og:description" id="og-description" content="Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm, chuyên gia kiến trúc hệ thống, AI Integration, xử lý 800K users và 3M requests/day">
     <meta property="og:type" content="profile">
     <meta property="og:url" content="https://thanhnt51997.github.io">
     <meta property="og:image" content="./avatar.jpg">
     
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Nguyễn Tất Thành - Team Leader Backend & System Architect">
-    <meta name="twitter:description" content="Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm, chuyên gia kiến trúc hệ thống">
+    <meta name="twitter:title" id="twitter-title" content="Nguyễn Tất Thành - Team Leader Backend & System Architect">
+    <meta name="twitter:description" id="twitter-description" content="Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm, chuyên gia kiến trúc hệ thống">
     <meta name="twitter:image" content="./avatar.jpg">
     
-    <title>Nguyễn Tất Thành | Team Leader Backend PHP/Laravel - System Architect</title>
+    <title id="page-title">Nguyễn Tất Thành | Team Leader Backend PHP/Laravel - System Architect</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -100,16 +100,20 @@
     <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
-                <div class="text-xl font-bold text-gray-800">Nguyễn Tất Thành</div>
+                <div class="text-xl font-bold text-gray-800" data-i18n="brand.name">Nguyễn Tất Thành</div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#intro" class="text-gray-600 hover:text-emerald-600 transition-colors">Giới thiệu</a>
-                    <a href="#why-me" class="text-gray-600 hover:text-emerald-600 transition-colors">Tại sao chọn tôi</a>
-                    <a href="#experience" class="text-gray-600 hover:text-emerald-600 transition-colors">Kinh nghiệm</a>
-                    <a href="#projects" class="text-gray-600 hover:text-emerald-600 transition-colors">Dự án</a>
-                    <a href="#skills" class="text-gray-600 hover:text-emerald-600 transition-colors">Kỹ năng</a>
-                    <a href="#testimonials" class="text-gray-600 hover:text-emerald-600 transition-colors">Đánh giá</a>
-                    <a href="#contact" class="bg-emerald-600 text-white px-4 py-2 rounded-full hover:bg-emerald-700 transition-colors">Liên hệ</a>
+                    <a href="#intro" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.intro">Giới thiệu</a>
+                    <a href="#why-me" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.why">Tại sao chọn tôi</a>
+                    <a href="#experience" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.experience">Kinh nghiệm</a>
+                    <a href="#projects" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.projects">Dự án</a>
+                    <a href="#skills" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.skills">Kỹ năng</a>
+                    <a href="#testimonials" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.testimonials">Đánh giá</a>
+                    <a href="#contact" class="bg-emerald-600 text-white px-4 py-2 rounded-full hover:bg-emerald-700 transition-colors" data-i18n="nav.contact">Liên hệ</a>
                 </nav>
+                <div class="flex items-center gap-2">
+                    <button id="btn-vi" class="text-sm px-3 py-1 rounded-full border border-gray-300 hover:border-emerald-600" aria-label="Vietnamese">VI</button>
+                    <button id="btn-en" class="text-sm px-3 py-1 rounded-full border border-gray-300 hover:border-emerald-600" aria-label="English">EN</button>
+                </div>
                 <button id="mobile-menu-button" class="md:hidden p-2 rounded-md">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -117,13 +121,17 @@
                 </button>
             </div>
              <div id="mobile-menu" class="hidden md:hidden mt-4">
-                <a href="#intro" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Giới thiệu</a>
-                <a href="#why-me" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Tại sao chọn tôi</a>
-                <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Kinh nghiệm</a>
-                <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Dự án</a>
-                <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Kỹ năng</a>
-                <a href="#testimonials" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded">Đánh giá</a>
-                <a href="#contact" class="block mt-2 py-2 px-4 text-sm text-white bg-emerald-600 hover:bg-emerald-700 rounded text-center">Liên hệ</a>
+                <a href="#intro" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.intro">Giới thiệu</a>
+                <a href="#why-me" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.why">Tại sao chọn tôi</a>
+                <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.experience">Kinh nghiệm</a>
+                <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.projects">Dự án</a>
+                <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.skills">Kỹ năng</a>
+                <a href="#testimonials" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.testimonials">Đánh giá</a>
+                <a href="#contact" class="block mt-2 py-2 px-4 text-sm text-white bg-emerald-600 hover:bg-emerald-700 rounded text-center" data-i18n="nav.contact">Liên hệ</a>
+                <div class="flex items-center gap-2 mt-2 px-4">
+                    <button id="btn-vi-mobile" class="text-xs px-3 py-1 rounded-full border border-gray-300 hover:border-emerald-600" aria-label="Vietnamese">VI</button>
+                    <button id="btn-en-mobile" class="text-xs px-3 py-1 rounded-full border border-gray-300 hover:border-emerald-600" aria-label="English">EN</button>
+                </div>
             </div>
         </div>
     </header>
@@ -132,14 +140,14 @@
 
         <section id="intro" class="text-center mb-16 md:mb-24 animate-on-scroll">
             <div class="flex flex-col items-center mb-6">
-                <img src="./avatar.jpg" alt="Ảnh đại diện Nguyễn Tất Thành" class="profile-pic">
+                <img src="./avatar.jpg" alt="Ảnh đại diện Nguyễn Tất Thành" class="profile-pic" data-i18n-attr="alt:intro.avatarAlt">
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Nguyễn Tất Thành</h1>
-            <h2 class="text-xl md:text-2xl font-light text-emerald-600 mb-6">Lập trình viên Backend & Team Leader (PHP | Laravel) | Chuyên gia Kiến trúc Hệ thống</h2>
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4" data-i18n="intro.name">Nguyễn Tất Thành</h1>
+            <h2 class="text-xl md:text-2xl font-light text-emerald-600 mb-6" data-i18n="intro.role">Lập trình viên Backend & Team Leader (PHP | Laravel) | Chuyên gia Kiến trúc Hệ thống</h2>
             <div class="flex justify-center items-center gap-x-6 gap-y-2 flex-wrap mb-6 text-lg">
                 <a href="https://github.com/thanhnt51997" target="_blank" class="flex items-center gap-1 text-gray-700 hover:text-emerald-600 transition-colors">
                     <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.168 6.839 9.492.5.092.682-.217.682-.482 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.031-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.378.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.338 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.001 10.001 0 0022 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd"></path></svg>
-                    <span>GitHub</span>
+                    <span data-i18n="intro.github">GitHub</span>
                 </a>
                 <span class="text-gray-400 hidden md:inline">|</span>
                 <a href="mailto:thanhnt51997@gmail.com" class="flex items-center gap-1 text-gray-700 hover:text-emerald-600 transition-colors">
@@ -152,7 +160,7 @@
                     <span>0384 428 234</span>
                 </a>
             </div>
-            <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed mb-6">
+            <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed mb-6" data-i18n="intro.summary">
                 Với 5 năm kinh nghiệm chuyên sâu và 2 năm dẫn dắt đội ngũ, tôi là một chuyên gia kiến trúc và triển khai giải pháp công nghệ, có khả năng chuyển đổi các yêu cầu phức tạp thành sản phẩm chất lượng cao, tập trung vào kiến trúc hiện đại (DDD, Microservices), tích hợp AI, và phát triển các giải pháp tài chính số quy mô lớn.
             </p>
             <div class="flex justify-center gap-4 mb-8">
@@ -160,38 +168,38 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                     </svg>
-                    <span>Tải CV (PDF)</span>
+                    <span data-i18n="intro.download">Tải CV (PDF)</span>
                 </button>
                 <a href="#contact" class="flex items-center gap-2 bg-white hover:bg-gray-50 text-emerald-600 font-semibold py-3 px-6 rounded-full border-2 border-emerald-600 transition-all hover:shadow-lg">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
-                    <span>Liên hệ ngay</span>
+                    <span data-i18n="intro.contactNow">Liên hệ ngay</span>
                 </a>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
                 <div class="bg-white p-4 rounded-lg shadow-sm text-center">
                     <div class="stat-number text-3xl font-bold text-emerald-600" data-target="5">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Năm kinh nghiệm</div>
+                    <div class="text-sm text-gray-500 mt-1" data-i18n="stats.yearsExperience">Năm kinh nghiệm</div>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-sm text-center">
                     <div class="stat-number text-3xl font-bold text-emerald-600" data-target="2">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Năm làm Team Leader</div>
+                    <div class="text-sm text-gray-500 mt-1" data-i18n="stats.yearsLead">Năm làm Team Leader</div>
                 </div>
                  <div class="bg-white p-4 rounded-lg shadow-sm text-center">
                     <div class="stat-number text-3xl font-bold text-emerald-600" data-target="800">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Ngàn người dùng</div>
+                    <div class="text-sm text-gray-500 mt-1" data-i18n="stats.thousandUsers">Ngàn người dùng</div>
                 </div>
                 <div class="bg-white p-4 rounded-lg shadow-sm text-center">
                     <div class="stat-number text-3xl font-bold text-emerald-600" data-target="3">0</div>
-                    <div class="text-sm text-gray-500 mt-1">Triệu requests/ngày</div>
+                    <div class="text-sm text-gray-500 mt-1" data-i18n="stats.millionReqPerDay">Triệu requests/ngày</div>
                 </div>
             </div>
         </section>
 
         <section id="why-me" class="mb-16 md:mb-24 animate-on-scroll">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Tại Sao Nên Chọn Tôi?</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Những giá trị độc đáo mà tôi mang lại cho tổ chức của bạn</p>
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2" data-i18n="why.title">Tại Sao Nên Chọn Tôi?</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="why.subtitle">Những giá trị độc đáo mà tôi mang lại cho tổ chức của bạn</p>
             
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                 <div class="bg-gradient-to-br from-emerald-50 to-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1 border border-emerald-100 animate-on-scroll">
@@ -200,19 +208,19 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Proven Track Record</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="why.track.title">Proven Track Record</h3>
                     <ul class="text-gray-700 space-y-2 text-sm">
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Giảm tỉ lệ lỗi hệ thống <strong>10-30%</strong> qua 2 năm</span>
+                            <span data-i18n="why.track.item1">Giảm tỉ lệ lỗi hệ thống <strong>10-30%</strong> qua 2 năm</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Xử lý <strong>3 triệu requests/ngày</strong> ổn định</span>
+                            <span data-i18n="why.track.item2">Xử lý <strong>3 triệu requests/ngày</strong> ổn định</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Rebuild API cho <strong>800K users</strong> với độ bao phủ test >85%</span>
+                            <span data-i18n="why.track.item3">Rebuild API cho <strong>800K users</strong> với độ bao phủ test >85%</span>
                         </li>
                     </ul>
                 </div>
@@ -223,19 +231,19 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Technical Excellence</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="why.tech.title">Technical Excellence</h3>
                     <ul class="text-gray-700 space-y-2 text-sm">
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Chuyên sâu <strong>DDD & Microservices</strong> Architecture</span>
+                            <span data-i18n="why.tech.item1">Chuyên sâu <strong>DDD & Microservices</strong> Architecture</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Tiên phong <strong>AI Integration</strong> (AWS Rekognition, AI Agent)</span>
+                            <span data-i18n="why.tech.item2">Tiên phong <strong>AI Integration</strong> (AWS Rekognition, AI Agent)</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Thiết lập chuẩn kỹ thuật: API <1s, Test Coverage >90%</span>
+                            <span data-i18n="why.tech.item3">Thiết lập chuẩn kỹ thuật: API <1s, Test Coverage >90%</span>
                         </li>
                     </ul>
                 </div>
@@ -246,19 +254,19 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-3">Leadership & Process</h3>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="why.lead.title">Leadership & Process</h3>
                     <ul class="text-gray-700 space-y-2 text-sm">
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Dẫn dắt team <strong>4-6 developers</strong> hiệu quả</span>
+                            <span data-i18n="why.lead.item1">Dẫn dắt team <strong>4-6 developers</strong> hiệu quả</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Áp dụng <strong>Agile/SCRUM</strong> với Pareto, Ishikawa, DoD</span>
+                            <span data-i18n="why.lead.item2">Áp dụng <strong>Agile/SCRUM</strong> với Pareto, Ishikawa, DoD</span>
                         </li>
                         <li class="flex items-start gap-2">
                             <span class="text-emerald-600 font-bold mt-1">✓</span>
-                            <span>Tăng hiệu suất team <strong>15-30%</strong> nhờ AI Agent & Prompt Engineering</span>
+                            <span data-i18n="why.lead.item3">Tăng hiệu suất team <strong>15-30%</strong> nhờ AI Agent & Prompt Engineering</span>
                         </li>
                     </ul>
                 </div>
@@ -272,8 +280,8 @@
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-lg font-bold text-gray-900 mb-2">Triết lý làm việc</h4>
-                        <p class="text-gray-700 leading-relaxed">
+                        <h4 class="text-lg font-bold text-gray-900 mb-2" data-i18n="why.philosophy.title">Triết lý làm việc</h4>
+                        <p class="text-gray-700 leading-relaxed" data-i18n="why.philosophy.body">
                             Tôi tin vào việc xây dựng hệ thống <strong>bền vững, có khả năng mở rộng</strong> và đặt <strong>chất lượng code</strong> lên hàng đầu. Mỗi dòng code không chỉ giải quyết vấn đề hiện tại mà còn tạo nền tảng cho tương lai. Tôi không ngừng học hỏi công nghệ mới (AI, Cloud, Architecture patterns) và chia sẻ kiến thức qua seminar nội bộ để nâng cao năng lực toàn đội.
                         </p>
                     </div>
@@ -282,94 +290,94 @@
         </section>
 
         <section id="experience" class="mb-16 md:mb-24 animate-on-scroll">
-             <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Hành Trình Sự Nghiệp</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Tổng hợp các vai trò và trách nhiệm chính trong quá trình phát triển sự nghiệp của tôi, từ các dự án ban đầu đến vị trí lãnh đạo hiện tại.</p>
+             <h2 class="text-3xl font-bold text-center text-gray-900 mb-2" data-i18n="exp.title">Hành Trình Sự Nghiệp</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="exp.subtitle">Tổng hợp các vai trò và trách nhiệm chính trong quá trình phát triển sự nghiệp của tôi, từ các dự án ban đầu đến vị trí lãnh đạo hiện tại.</p>
 
             <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
                 <div class="relative pl-4">
                     
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">09/2023 – Hiện tại</p>
-                        <h3 class="font-bold text-lg text-gray-800">Team Leader | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
+                        <h3 class="font-bold text-lg text-gray-800" data-i18n="exp.kidsonline.lead.title">Team Leader | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2 mb-4">
-                            <li><strong>Tổng thể:</strong> Áp dụng triệt để <strong>Agile/SCRUM</strong> và các phương pháp đánh giá chất lượng (Pareto, Ishikawa), thiết lập tiêu chuẩn đầu ra (DoD) cho Bug/Feature, <strong>giảm tỉ lệ lỗi toàn hệ thống 10% (năm 1) và 30% (năm 2)</strong>.</li>
-                            <li>Tiên phong áp dụng AI (AWS facial recognition, Hanet camera API) tự động hóa điểm danh, <strong>giảm 30% thời gian nhận xét hoạt động học sinh cho giáo viên</strong>.</li>
+                            <li data-i18n="exp.kidsonline.lead.item1"><strong>Tổng thể:</strong> Áp dụng triệt để <strong>Agile/SCRUM</strong> và các phương pháp đánh giá chất lượng (Pareto, Ishikawa), thiết lập tiêu chuẩn đầu ra (DoD) cho Bug/Feature, <strong>giảm tỉ lệ lỗi toàn hệ thống 10% (năm 1) và 30% (năm 2)</strong>.</li>
+                            <li data-i18n="exp.kidsonline.lead.item2">Tiên phong áp dụng AI (AWS facial recognition, Hanet camera API) tự động hóa điểm danh, <strong>giảm 30% thời gian nhận xét hoạt động học sinh cho giáo viên</strong>.</li>
                         </ul>
                         
                         <div class="ml-4 border-l-2 border-emerald-100 pl-4 py-2">
-                            <h4 class="font-semibold text-base text-emerald-600">09/2023 – 03/2024: Dự án Bóc Tách Microservices Phase 1</h4>
+                            <h4 class="font-semibold text-base text-emerald-600" data-i18n="exp.kidsonline.phase1.title">09/2023 – 03/2024: Dự án Bóc Tách Microservices Phase 1</h4>
                             <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1 mt-1">
-                                <li>Dẫn dắt đội <strong>5-6 thành viên</strong> bóc tách các Module có lượng Request lớn (Điểm danh, Album, Core, Bài viết, Nhận xét) khỏi Server vật lý.</li>
-                                <li>Kết quả: <strong>Giảm tải cho server 5-10% chi phí vận hành</strong>, cải thiện hiệu suất với tiêu chuẩn <strong>Response Time bắt buộc &lt;3s/request</strong>.</li>
+                                <li data-i18n="exp.kidsonline.phase1.item1">Dẫn dắt đội <strong>5-6 thành viên</strong> bóc tách các Module có lượng Request lớn (Điểm danh, Album, Core, Bài viết, Nhận xét) khỏi Server vật lý.</li>
+                                <li data-i18n="exp.kidsonline.phase1.item2">Kết quả: <strong>Giảm tải cho server 5-10% chi phí vận hành</strong>, cải thiện hiệu suất với tiêu chuẩn <strong>Response Time bắt buộc &lt;3s/request</strong>.</li>
                             </ul>
                         </div>
                         
                         <div class="ml-4 border-l-2 border-emerald-100 pl-4 py-2">
-                            <h4 class="font-semibold text-base text-emerald-600">04/2024 – 08/2024: Tái Kiến Trúc API Ứng Dụng Phụ Huynh</h4>
+                            <h4 class="font-semibold text-base text-emerald-600" data-i18n="exp.kidsonline.parentapi.title">04/2024 – 08/2024: Tái Kiến Trúc API Ứng Dụng Phụ Huynh</h4>
                             <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1 mt-1">
-                                <li>Thiết kế lại toàn bộ API APPPH (800K người dùng) theo mô hình <strong>DDD và Design Pattern</strong>, <strong>giảm 30% tải cho Server chịu tải cũ</strong>.</li>
-                                <li>Tiêu chuẩn kỹ thuật: <strong>Response Time API &lt;1s</strong>, bổ sung <strong>Unit Test</strong> với <strong>độ bao phủ Test Case &gt;85%</strong>.</li>
-                                <li>Tích hợp các cổng thanh toán (VNPay, Vietinbank, Gpay, Napas) vào hệ thống API.</li>
+                                <li data-i18n="exp.kidsonline.parentapi.item1">Thiết kế lại toàn bộ API APPPH (800K người dùng) theo mô hình <strong>DDD và Design Pattern</strong>, <strong>giảm 30% tải cho Server chịu tải cũ</strong>.</li>
+                                <li data-i18n="exp.kidsonline.parentapi.item2">Tiêu chuẩn kỹ thuật: <strong>Response Time API &lt;1s</strong>, bổ sung <strong>Unit Test</strong> với <strong>độ bao phủ Test Case &gt;85%</strong>.</li>
+                                <li data-i18n="exp.kidsonline.parentapi.item3">Tích hợp các cổng thanh toán (VNPay, Vietinbank, Gpay, Napas) vào hệ thống API.</li>
                             </ul>
                         </div>
                         
                         <div class="ml-4 border-l-2 border-emerald-100 pl-4 py-2">
-                            <h4 class="font-semibold text-base text-emerald-600">09/2024 – 12/2024: Rebuild Hệ thống Tài chính</h4>
+                            <h4 class="font-semibold text-base text-emerald-600" data-i18n="exp.kidsonline.finance.title">09/2024 – 12/2024: Rebuild Hệ thống Tài chính</h4>
                             <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1 mt-1">
-                                <li>Chủ trì rebuild tính năng Tài chính cốt lõi, xử lý các tác vụ tính tiền phức tạp với nhiều công thức được áp dụng cùng lúc.</li>
-                                <li>Tiêu chuẩn kỹ thuật: API &lt;1s, áp dụng DDD, đạt <strong>độ bao phủ Test Case &gt;90%</strong> (<strong>hơn 5000 test case</strong> cho 150 APIs).</li>
+                                <li data-i18n="exp.kidsonline.finance.item1">Chủ trì rebuild tính năng Tài chính cốt lõi, xử lý các tác vụ tính tiền phức tạp với nhiều công thức được áp dụng cùng lúc.</li>
+                                <li data-i18n="exp.kidsonline.finance.item2">Tiêu chuẩn kỹ thuật: API &lt;1s, áp dụng DDD, đạt <strong>độ bao phủ Test Case &gt;90%</strong> (<strong>hơn 5000 test case</strong> cho 150 APIs).</li>
                             </ul>
                         </div>
                         
                         <div class="ml-4 border-l-2 border-emerald-100 pl-4 py-2">
-                            <h4 class="font-semibold text-base text-emerald-600">01/2025 – 05/2025: Ứng dụng AI Agent và Bảo trì Nâng cấp</h4>
+                            <h4 class="font-semibold text-base text-emerald-600" data-i18n="exp.kidsonline.ai.title">01/2025 – 05/2025: Ứng dụng AI Agent và Bảo trì Nâng cấp</h4>
                             <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1 mt-1">
-                                <li>Quản lý đội <strong>4 thành viên</strong> bảo trì, nâng cấp, và tối ưu Request/Process có độ phức tạp cao, <strong>giảm tỉ lệ lỗi 30%</strong> so với cùng kỳ năm trước.</li>
-                                <li>Ứng dụng <strong>AI Agent</strong> để <strong>tăng hiệu suất team 15-30%</strong>. Thiết kế <strong>Prompt Engineering chuẩn</strong> theo kiến trúc, giúp <strong>Gen code nhanh</strong> từ yêu cầu BA và giảm thời gian Review/Sửa lỗi AI.</li>
+                                <li data-i18n="exp.kidsonline.ai.item1">Quản lý đội <strong>4 thành viên</strong> bảo trì, nâng cấp, và tối ưu Request/Process có độ phức tạp cao, <strong>giảm tỉ lệ lỗi 30%</strong> so với cùng kỳ năm trước.</li>
+                                <li data-i18n="exp.kidsonline.ai.item2">Ứng dụng <strong>AI Agent</strong> để <strong>tăng hiệu suất team 15-30%</strong>. Thiết kế <strong>Prompt Engineering chuẩn</strong> theo kiến trúc, giúp <strong>Gen code nhanh</strong> từ yêu cầu BA và giảm thời gian Review/Sửa lỗi AI.</li>
                             </ul>
                         </div>
                         
                         <div class="ml-4 border-l-2 border-emerald-100 pl-4 py-2">
-                            <h4 class="font-semibold text-base text-emerald-600">05/2025 – 10/2025: Thiết kế Hệ thống Migrate Dữ liệu Lớn (MySQL -> Mongo)</h4>
+                            <h4 class="font-semibold text-base text-emerald-600" data-i18n="exp.kidsonline.migrate.title">05/2025 – 10/2025: Thiết kế Hệ thống Migrate Dữ liệu Lớn (MySQL -> Mongo)</h4>
                             <ul class="list-disc pl-5 text-gray-700 text-sm space-y-1 mt-1">
-                                <li>Thiết kế hệ thống <strong>migrate hàng triệu bản ghi trong 30-60 phút</strong> bằng cách giả lập thao tác người dùng và chạy rẽ nhánh (Node.js).</li>
-                                <li>Đảm bảo dữ liệu khách hàng được bảo toàn, <strong>không ảnh hưởng</strong> tới quá trình sử dụng của nhân viên trường và phụ huynh.</li>
+                                <li data-i18n="exp.kidsonline.migrate.item1">Thiết kế hệ thống <strong>migrate hàng triệu bản ghi trong 30-60 phút</strong> bằng cách giả lập thao tác người dùng và chạy rẽ nhánh (Node.js).</li>
+                                <li data-i18n="exp.kidsonline.migrate.item2">Đảm bảo dữ liệu khách hàng được bảo toàn, <strong>không ảnh hưởng</strong> tới quá trình sử dụng của nhân viên trường và phụ huynh.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">09/2019 – 09/2023</p>
-                        <h3 class="font-bold text-lg text-gray-800">Developer | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
+                        <h3 class="font-bold text-lg text-gray-800" data-i18n="exp.kidsonline.dev.title">Developer | CÔNG TY CỔ PHẦN KIDSONLINE</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Phát triển các tính năng cốt lõi cho hệ thống Kidsonline bằng Laravel, bao gồm điểm danh nhận diện khuôn mặt (tích hợp AWS), upload video AWS, nhận diện học sinh trong album ảnh.</li>
-                            <li>Xây dựng hệ thống gửi notification tới 1 triệu người dùng trong thời gian cao điểm, <strong>đảm bảo tỷ lệ gửi thành công 99%</strong>.</li>
-                            <li>Thành thạo Git, Deploy code server CI/CD, có kinh nghiệm làm việc với Firebase, Docker, K8s, làm việc với quy trình Agile, SCRUM.</li>
-                            <li>Xây dựng API phát triển cho đội app Kidsonline, Kidsonline teacher.</li>
+                            <li data-i18n="exp.kidsonline.dev.item1">Phát triển các tính năng cốt lõi cho hệ thống Kidsonline bằng Laravel, bao gồm điểm danh nhận diện khuôn mặt (tích hợp AWS), upload video AWS, nhận diện học sinh trong album ảnh.</li>
+                            <li data-i18n="exp.kidsonline.dev.item2">Xây dựng hệ thống gửi notification tới 1 triệu người dùng trong thời gian cao điểm, <strong>đảm bảo tỷ lệ gửi thành công 99%</strong>.</li>
+                            <li data-i18n="exp.kidsonline.dev.item3">Thành thạo Git, Deploy code server CI/CD, có kinh nghiệm làm việc với Firebase, Docker, K8s, làm việc với quy trình Agile, SCRUM.</li>
+                            <li data-i18n="exp.kidsonline.dev.item4">Xây dựng API phát triển cho đội app Kidsonline, Kidsonline teacher.</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">07/2019 – 09/2019</p>
-                        <h3 class="font-bold text-lg text-gray-800">Thực tập sinh lập trình web PHP, Laravel | CÔNG TY TNHH HAPOSOFT</h3>
+                        <h3 class="font-bold text-lg text-gray-800" data-i18n="exp.haposoft.title">Thực tập sinh lập trình web PHP, Laravel | CÔNG TY TNHH HAPOSOFT</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Được training kiến thức cơ bản về lập trình web (HTML&CSS, Bootstrap responsive, SCSS, Javascript, Jquery, PHP, Laravel & MySQL, Ajax).</li>
-                            <li>Hoàn thành Project thực tế: Quản lý Nhân sự với các chức năng CRUD cơ bản, phân quyền, tìm kiếm.</li>
+                            <li data-i18n="exp.haposoft.item1">Được training kiến thức cơ bản về lập trình web (HTML&CSS, Bootstrap responsive, SCSS, Javascript, Jquery, PHP, Laravel & MySQL, Ajax).</li>
+                            <li data-i18n="exp.haposoft.item2">Hoàn thành Project thực tế: Quản lý Nhân sự với các chức năng CRUD cơ bản, phân quyền, tìm kiếm.</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">05/2018 – 04/2019</p>
-                        <h3 class="font-bold text-lg text-gray-800">Chuyên viên SEO | CÔNG TY THƯƠNG MẠI VÀ ĐẦU TƯ XNK HÙNG THỊNH</h3>
+                        <h3 class="font-bold text-lg text-gray-800" data-i18n="exp.seo.title">Chuyên viên SEO | CÔNG TY THƯƠNG MẠI VÀ ĐẦU TƯ XNK HÙNG THỊNH</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Tối ưu Website chuẩn SEO, xây dựng backlink và sử dụng tool để tăng traffic tự nhiên.</li>
+                            <li data-i18n="exp.seo.item1">Tối ưu Website chuẩn SEO, xây dựng backlink và sử dụng tool để tăng traffic tự nhiên.</li>
                         </ul>
                     </div>
 
                     <div class="experience-item">
                         <p class="text-xs text-gray-500">04/2018 – 08/2018</p>
-                        <h3 class="font-bold text-lg text-gray-800">CTV Fanpage | CÔNG TY CỔ PHẦN DỊCH VỤ PHÁT TRIỂN NGƯỜI DÙNG MKO</h3>
+                        <h3 class="font-bold text-lg text-gray-800" data-i18n="exp.mko.title">CTV Fanpage | CÔNG TY CỔ PHẦN DỊCH VỤ PHÁT TRIỂN NGƯỜI DÙNG MKO</h3>
                         <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2">
-                            <li>Quản lý nội dung và tương tác trên các Fanpage giải trí/tin tức lớn trên Facebook, Zalo, và website Xem.vn.</li>
+                            <li data-i18n="exp.mko.item1">Quản lý nội dung và tương tác trên các Fanpage giải trí/tin tức lớn trên Facebook, Zalo, và website Xem.vn.</li>
                         </ul>
                     </div>
                 </div>
@@ -377,66 +385,66 @@
         </section>
 
         <section id="projects" class="mb-16 md:mb-24 animate-on-scroll">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Dự Án Freelance Đa Dạng</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Bên cạnh công việc chính, tôi còn tham gia vào nhiều dự án freelance, áp dụng kỹ năng để giải quyết các bài toán kinh doanh thực tế trong nhiều lĩnh vực khác nhau.</p>
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2" data-i18n="projects.title">Dự Án Freelance Đa Dạng</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="projects.subtitle">Bên cạnh công việc chính, tôi còn tham gia vào nhiều dự án freelance, áp dụng kỹ năng để giải quyết các bài toán kinh doanh thực tế trong nhiều lĩnh vực khác nhau.</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                     <div>
-                        <h3 class="font-bold text-lg mb-2 text-gray-800">Nền tảng Dịch vụ (Mỹ)</h3>
-                        <p class="text-gray-600 text-sm mb-4">Phát triển ứng dụng tìm người giúp việc, dọn nhà, dọn văn phòng theo mô hình Btaskee, <strong>giúp đơn vị khách hàng mở rộng dịch vụ sang các thị trường mới</strong>.</p>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800" data-i18n="projects.service.title">Nền tảng Dịch vụ (Mỹ)</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-i18n="projects.service.desc">Phát triển ứng dụng tìm người giúp việc, dọn nhà, dọn văn phòng theo mô hình Btaskee, <strong>giúp đơn vị khách hàng mở rộng dịch vụ sang các thị trường mới</strong>.</p>
                     </div>
                     <div class="flex flex-col space-y-2">
                         <a href="https://customerneedio.thietkeapp.asia/domain" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
-                            Xem Demo (Customer)
+                            <span data-i18n="projects.demoCustomer">Xem Demo (Customer)</span>
                         </a>
                         <a href="https://vendorneedio.thietkeapp.asia/" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
-                            Xem Demo (Vendor)
+                            <span data-i18n="projects.demoVendor">Xem Demo (Vendor)</span>
                         </a>
                     </div>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                     <div>
-                        <h3 class="font-bold text-lg mb-2 text-gray-800">Quản lý Kho (Việt Nam)</h3>
-                        <p class="text-gray-600 text-sm mb-4">Xây dựng web quản lý xuất nhập tồn kho, <strong>tối ưu hóa quy trình vận hành, giúp giảm 10% chi phí lưu kho</strong>.</p>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800" data-i18n="projects.wms.title">Quản lý Kho (Việt Nam)</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-i18n="projects.wms.desc">Xây dựng web quản lý xuất nhập tồn kho, <strong>tối ưu hóa quy trình vận hành, giúp giảm 10% chi phí lưu kho</strong>.</p>
                     </div>
                     <a href="https://bedepyf.com.vn/login" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
-                        Xem Demo
+                        <span data-i18n="projects.demo">Xem Demo</span>
                     </a>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                     <div>
-                        <h3 class="font-bold text-lg mb-2 text-gray-800">Thương mại điện tử</h3>
-                        <p class="text-gray-600 text-sm mb-4">Phát triển website rao vặt Chomang.vn với các tính năng tương tự Chợ Tốt.</p>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800" data-i18n="projects.ecom.title">Thương mại điện tử</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-i18n="projects.ecom.desc">Phát triển website rao vặt Chomang.vn với các tính năng tương tự Chợ Tốt.</p>
                     </div>
                     <a href="https://chomang.vn" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
-                        Xem Demo
+                        <span data-i18n="projects.demo">Xem Demo</span>
                     </a>
                 </div>
                  <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                     <div>
-                        <h3 class="font-bold text-lg mb-2 text-gray-800">Sức khỏe Học đường</h3>
-                        <p class="text-gray-600 text-sm mb-4">Đóng góp phát triển hệ thống cho Bộ GD&ĐT (suckhoe-tuonglai.moet.gov.vn).</p>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800" data-i18n="projects.schoolhealth.title">Sức khỏe Học đường</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-i18n="projects.schoolhealth.desc">Đóng góp phát triển hệ thống cho Bộ GD&ĐT (suckhoe-tuonglai.moet.gov.vn).</p>
                     </div>
                     <a href="https://suckhoe-tuonglai.moet.gov.vn" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
-                        Xem Demo
+                        <span data-i18n="projects.demo">Xem Demo</span>
                     </a>
                 </div>
                  <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                     <div>
-                        <h3 class="font-bold text-lg mb-2 text-gray-800">Giáo dục trực tuyến</h3>
-                        <p class="text-gray-600 text-sm mb-4">Xây dựng website học tiếng Nhật tanoshi-nihongo.nextcolabs.com.</p>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800" data-i18n="projects.edtech.title">Giáo dục trực tuyến</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-i18n="projects.edtech.desc">Xây dựng website học tiếng Nhật tanoshi-nihongo.nextcolabs.com.</p>
                     </div>
                      <a href="https://tanoshi-nihongo.nextcolabs.com" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
-                        Xem Demo
+                        <span data-i18n="projects.demo">Xem Demo</span>
                     </a>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                     <div>
-                        <h3 class="font-bold text-lg mb-2 text-gray-800">Website Doanh nghiệp & SEO</h3>
-                        <p class="text-gray-600 text-sm mb-4">Dựng và tùy chỉnh CMS cho nhiều website công ty, bảo tàng, và tối ưu SEO (Butuni.com).</p>
+                        <h3 class="font-bold text-lg mb-2 text-gray-800" data-i18n="projects.seo.title">Website Doanh nghiệp & SEO</h3>
+                        <p class="text-gray-600 text-sm mb-4" data-i18n="projects.seo.desc">Dựng và tùy chỉnh CMS cho nhiều website công ty, bảo tàng, và tối ưu SEO (Butuni.com).</p>
                         <ul class="list-disc pl-5 text-gray-600 text-xs mt-1">
-                            <li>Tối ưu chuẩn SEO lại website, lên Keyword Plan, quản lý CTV, đẩy top từ khóa.</li>
-                            <li>Kết quả: Các từ khóa TOP 1-10 (áo da thật, áo khoác da thật,...), <strong>đẩy doanh thu quảng cáo lên 10tr/tuần (50% tổng doanh thu)</strong>.</li>
+                            <li data-i18n="projects.seo.item1">Tối ưu chuẩn SEO lại website, lên Keyword Plan, quản lý CTV, đẩy top từ khóa.</li>
+                            <li data-i18n="projects.seo.item2">Kết quả: Các từ khóa TOP 1-10 (áo da thật, áo khoác da thật,...), <strong>đẩy doanh thu quảng cáo lên 10tr/tuần (50% tổng doanh thu)</strong>.</li>
                         </ul>
                     </div>
                     </div>
@@ -444,8 +452,8 @@
         </section>
 
         <section id="skills" class="mb-16 md:mb-24 animate-on-scroll">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Hệ Thống Kỹ Năng</h2>
-             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Tổng hợp các công nghệ và phương pháp luận chính mà tôi đã sử dụng và làm chủ trong suốt quá trình phát triển sự nghiệp.</p>
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2" data-i18n="skills.title">Hệ Thống Kỹ Năng</h2>
+             <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="skills.subtitle">Tổng hợp các công nghệ và phương pháp luận chính mà tôi đã sử dụng và làm chủ trong suốt quá trình phát triển sự nghiệp.</p>
             <div class="bg-white rounded-xl shadow-lg p-6 md:p-8">
                 <div class="chart-container">
                     <canvas id="skillsChart"></canvas>
@@ -454,8 +462,8 @@
         </section>
 
         <section id="testimonials" class="mb-16 md:mb-24 animate-on-scroll">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Đánh Giá & Thành Tích</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Những phản hồi và thành tích nổi bật trong sự nghiệp</p>
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2" data-i18n="testimonials.title">Đánh Giá & Thành Tích</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="testimonials.subtitle">Những phản hồi và thành tích nổi bật trong sự nghiệp</p>
             
             <!-- Badges/Achievements -->
             <div class="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto mb-12">
@@ -465,8 +473,8 @@
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-gray-900 text-lg mb-1">Top Performer</h4>
-                    <p class="text-sm text-gray-600">Giảm bug 30% trong 2 năm</p>
+                    <h4 class="font-bold text-gray-900 text-lg mb-1" data-i18n="badges.top">Top Performer</h4>
+                    <p class="text-sm text-gray-600" data-i18n="badges.top.desc">Giảm bug 30% trong 2 năm</p>
                 </div>
 
                 <div class="bg-gradient-to-br from-blue-50 to-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-blue-200 text-center animate-on-scroll">
@@ -475,8 +483,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-gray-900 text-lg mb-1">Quality Champion</h4>
-                    <p class="text-sm text-gray-600">Test Coverage >90%</p>
+                    <h4 class="font-bold text-gray-900 text-lg mb-1" data-i18n="badges.quality">Quality Champion</h4>
+                    <p class="text-sm text-gray-600" data-i18n="badges.quality.desc">Test Coverage >90%</p>
                 </div>
 
                 <div class="bg-gradient-to-br from-purple-50 to-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-purple-200 text-center animate-on-scroll">
@@ -485,8 +493,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-gray-900 text-lg mb-1">Innovation Leader</h4>
-                    <p class="text-sm text-gray-600">Tiên phong AI Integration</p>
+                    <h4 class="font-bold text-gray-900 text-lg mb-1" data-i18n="badges.innovation">Innovation Leader</h4>
+                    <p class="text-sm text-gray-600" data-i18n="badges.innovation.desc">Tiên phong AI Integration</p>
                 </div>
 
                 <div class="bg-gradient-to-br from-emerald-50 to-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-emerald-200 text-center animate-on-scroll">
@@ -495,8 +503,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                         </svg>
                     </div>
-                    <h4 class="font-bold text-gray-900 text-lg mb-1">Team Builder</h4>
-                    <p class="text-sm text-gray-600">Tăng hiệu suất team 15-30%</p>
+                    <h4 class="font-bold text-gray-900 text-lg mb-1" data-i18n="badges.team">Team Builder</h4>
+                    <p class="text-sm text-gray-600" data-i18n="badges.team.desc">Tăng hiệu suất team 15-30%</p>
                 </div>
             </div>
 
@@ -510,11 +518,11 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900">Technical Director - Kidsonline</h4>
-                            <p class="text-xs text-gray-500">Quản lý trực tiếp</p>
+                            <h4 class="font-bold text-gray-900" data-i18n="testi.1.title">Technical Director - Kidsonline</h4>
+                            <p class="text-xs text-gray-500" data-i18n="testi.1.role">Quản lý trực tiếp</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic leading-relaxed">
+                    <p class="text-gray-700 italic leading-relaxed" data-i18n="testi.1.body">
                         "Thành là một Team Leader xuất sắc với khả năng kiến trúc hệ thống mạnh mẽ. Anh ấy đã dẫn dắt team rebuild toàn bộ hệ thống tài chính với độ phức tạp cao, đạt test coverage >90% và giảm tỉ lệ lỗi đáng kể. Đặc biệt, việc áp dụng AI Agent đã giúp team tăng hiệu suất làm việc rõ rệt."
                     </p>
                     <div class="flex items-center mt-4 text-yellow-400">
@@ -534,11 +542,11 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900">Senior Developer - Kidsonline</h4>
-                            <p class="text-xs text-gray-500">Đồng nghiệp</p>
+                            <h4 class="font-bold text-gray-900" data-i18n="testi.2.title">Senior Developer - Kidsonline</h4>
+                            <p class="text-xs text-gray-500" data-i18n="testi.2.role">Đồng nghiệp</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic leading-relaxed">
+                    <p class="text-gray-700 italic leading-relaxed" data-i18n="testi.2.body">
                         "Làm việc với Thành rất hiệu quả. Anh luôn có cái nhìn tổng quan về kiến trúc hệ thống và thiết lập các chuẩn kỹ thuật rõ ràng (API response time, test coverage). Code review của anh rất chi tiết và mang tính xây dựng, giúp team học hỏi được nhiều về best practices và design patterns."
                     </p>
                     <div class="flex items-center mt-4 text-yellow-400">
@@ -559,11 +567,11 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900">Khách hàng Freelance - Mỹ</h4>
+                            <h4 class="font-bold text-gray-900" data-i18n="testi.3.title">Khách hàng Freelance - Mỹ</h4>
                             <p class="text-xs text-gray-500">Service Platform Project</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic leading-relaxed">
+                    <p class="text-gray-700 italic leading-relaxed" data-i18n="testi.3.body">
                         "Thanh delivered an excellent service platform for our business in the US market. Professional communication, clean code architecture, and on-time delivery. The system handles our vendor-customer matching efficiently. Highly recommend for complex backend projects."
                     </p>
                     <div class="flex items-center mt-4 text-yellow-400">
@@ -583,11 +591,11 @@
                             </svg>
                         </div>
                         <div>
-                            <h4 class="font-bold text-gray-900">Khách hàng Freelance - Việt Nam</h4>
+                            <h4 class="font-bold text-gray-900" data-i18n="testi.4.title">Khách hàng Freelance - Việt Nam</h4>
                             <p class="text-xs text-gray-500">Warehouse Management System</p>
                         </div>
                     </div>
-                    <p class="text-gray-700 italic leading-relaxed">
+                    <p class="text-gray-700 italic leading-relaxed" data-i18n="testi.4.body">
                         "Hệ thống quản lý kho của Thành giúp chúng tôi tiết kiệm 10% chi phí lưu kho và tối ưu hóa quy trình vận hành. Giao diện thân thiện, dễ sử dụng cho nhân viên. Hỗ trợ nhiệt tình sau bàn giao. Rất đáng tin cậy cho các dự án dài hạn."
                     </p>
                     <div class="flex items-center mt-4 text-yellow-400">
@@ -602,22 +610,22 @@
         </section>
 
         <section id="education" class="mb-16 md:mb-24 animate-on-scroll">
-            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2">Học Vấn</h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Nền tảng giáo dục vững chắc định hình năng lực chuyên môn của tôi.</p>
+            <h2 class="text-3xl font-bold text-center text-gray-900 mb-2" data-i18n="edu.title">Học Vấn</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="edu.subtitle">Nền tảng giáo dục vững chắc định hình năng lực chuyên môn của tôi.</p>
             <div class="max-w-xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
                 <div class="flex items-center space-x-4 mb-4">
                     <span class="text-4xl text-emerald-600">🎓</span>
                     <div>
-                        <h3 class="font-bold text-lg text-gray-800">ĐẠI HỌC THỦY LỢI</h3>
-                        <p class="text-gray-600">Kỹ sư Công nghệ thông tin - Chuyên ngành: Công Nghệ Thông Tin</p>
+                        <h3 class="font-bold text-lg text-gray-800" data-i18n="edu.tlu.title">ĐẠI HỌC THỦY LỢI</h3>
+                        <p class="text-gray-600" data-i18n="edu.tlu.desc">Kỹ sư Công nghệ thông tin - Chuyên ngành: Công Nghệ Thông Tin</p>
                         <p class="text-sm text-gray-500">10/2015 - 01/2020</p>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">
                     <span class="text-4xl text-emerald-600">📜</span>
                     <div>
-                        <h3 class="font-bold text-lg text-gray-800">Tiếng Anh</h3>
-                        <p class="text-gray-600">Đọc hiểu tốt tài liệu chuyên ngành.</p>
+                        <h3 class="font-bold text-lg text-gray-800" data-i18n="edu.english.title">Tiếng Anh</h3>
+                        <p class="text-gray-600" data-i18n="edu.english.desc">Đọc hiểu tốt tài liệu chuyên ngành.</p>
                     </div>
                 </div>
             </div>
@@ -627,10 +635,10 @@
 
     <footer id="contact" class="bg-gray-800 text-white">
         <div class="container mx-auto px-6 py-12 text-center">
-            <h2 class="text-3xl font-bold mb-4">Sẵn sàng hợp tác</h2>
-            <p class="max-w-xl mx-auto mb-8 text-gray-300">Hãy kết nối với tôi để cùng thảo luận về các cơ hội phát triển sản phẩm công nghệ đột phá.</p>
+            <h2 class="text-3xl font-bold mb-4" data-i18n="contact.title">Sẵn sàng hợp tác</h2>
+            <p class="max-w-xl mx-auto mb-8 text-gray-300" data-i18n="contact.subtitle">Hãy kết nối với tôi để cùng thảo luận về các cơ hội phát triển sản phẩm công nghệ đột phá.</p>
             <div class="flex justify-center items-center space-x-6">
-                <a href="mailto:thanhnt51997@gmail.com" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-full transition-colors">
+                <a href="mailto:thanhnt51997@gmail.com" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-6 rounded-full transition-colors" data-i18n="contact.sendEmail">
                     Gửi Email
                 </a>
                 <a href="https://github.com/thanhnt51997" target="_blank" class="text-gray-400 hover:text-white transition-colors">
@@ -640,13 +648,251 @@
                 <p class="text-gray-400">0384 428 234</p>
             </div>
              <div class="mt-12 border-t border-gray-700 pt-6 text-sm text-gray-500">
-                &copy; 2024 Nguyễn Tất Thành. Xây dựng bằng tâm huyết.
+                &copy; 2024 Nguyễn Tất Thành. <span data-i18n="footer.madeWith">Xây dựng bằng tâm huyết.</span>
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const translations = {
+                vi: {
+                    meta: {
+                        title: 'Nguyễn Tất Thành | Team Leader Backend PHP/Laravel - System Architect',
+                        description: 'Nguyễn Tất Thành - Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm. Chuyên gia kiến trúc hệ thống (DDD, Microservices), AI Integration, và giải pháp tài chính số quy mô lớn (800K users, 3M requests/day).',
+                        ogTitle: 'Nguyễn Tất Thành - Team Leader Backend & System Architect',
+                        ogDesc: 'Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm, chuyên gia kiến trúc hệ thống, AI Integration, xử lý 800K users và 3M requests/day'
+                    },
+                    brand: { name: 'Nguyễn Tất Thành' },
+                    nav: { intro: 'Giới thiệu', why: 'Tại sao chọn tôi', experience: 'Kinh nghiệm', projects: 'Dự án', skills: 'Kỹ năng', testimonials: 'Đánh giá', contact: 'Liên hệ' },
+                    intro: {
+                        avatarAlt: 'Ảnh đại diện Nguyễn Tất Thành',
+                        name: 'Nguyễn Tất Thành',
+                        role: 'Lập trình viên Backend & Team Leader (PHP | Laravel) | Chuyên gia Kiến trúc Hệ thống',
+                        github: 'GitHub',
+                        summary: 'Với 5 năm kinh nghiệm chuyên sâu và 2 năm dẫn dắt đội ngũ, tôi là một chuyên gia kiến trúc và triển khai giải pháp công nghệ, có khả năng chuyển đổi các yêu cầu phức tạp thành sản phẩm chất lượng cao, tập trung vào kiến trúc hiện đại (DDD, Microservices), tích hợp AI, và phát triển các giải pháp tài chính số quy mô lớn.',
+                        download: 'Tải CV (PDF)',
+                        contactNow: 'Liên hệ ngay'
+                    },
+                    stats: {
+                        yearsExperience: 'Năm kinh nghiệm',
+                        yearsLead: 'Năm làm Team Leader',
+                        thousandUsers: 'Ngàn người dùng',
+                        millionReqPerDay: 'Triệu requests/ngày'
+                    },
+                    why: {
+                        title: 'Tại Sao Nên Chọn Tôi?',
+                        subtitle: 'Những giá trị độc đáo mà tôi mang lại cho tổ chức của bạn',
+                        track: { title: 'Proven Track Record', item1: 'Giảm tỉ lệ lỗi hệ thống <strong>10-30%</strong> qua 2 năm', item2: 'Xử lý <strong>3 triệu requests/ngày</strong> ổn định', item3: 'Rebuild API cho <strong>800K users</strong> với độ bao phủ test >85%' },
+                        tech: { title: 'Technical Excellence', item1: 'Chuyên sâu <strong>DDD & Microservices</strong> Architecture', item2: 'Tiên phong <strong>AI Integration</strong> (AWS Rekognition, AI Agent)', item3: 'Thiết lập chuẩn kỹ thuật: API <1s, Test Coverage >90%' },
+                        lead: { title: 'Leadership & Process', item1: 'Dẫn dắt team <strong>4-6 developers</strong> hiệu quả', item2: 'Áp dụng <strong>Agile/SCRUM</strong> với Pareto, Ishikawa, DoD', item3: 'Tăng hiệu suất team <strong>15-30%</strong> nhờ AI Agent & Prompt Engineering' },
+                        philosophy: { title: 'Triết lý làm việc', body: 'Tôi tin vào việc xây dựng hệ thống <strong>bền vững, có khả năng mở rộng</strong> và đặt <strong>chất lượng code</strong> lên hàng đầu. Mỗi dòng code không chỉ giải quyết vấn đề hiện tại mà còn tạo nền tảng cho tương lai. Tôi không ngừng học hỏi công nghệ mới (AI, Cloud, Architecture patterns) và chia sẻ kiến thức qua seminar nội bộ để nâng cao năng lực toàn đội.' }
+                    },
+                    exp: {
+                        title: 'Hành Trình Sự Nghiệp',
+                        subtitle: 'Tổng hợp các vai trò và trách nhiệm chính trong quá trình phát triển sự nghiệp của tôi, từ các dự án ban đầu đến vị trí lãnh đạo hiện tại.',
+                        kidsonline: {
+                            lead: { title: 'Team Leader | CÔNG TY CỔ PHẦN KIDSONLINE', item1: '<strong>Tổng thể:</strong> Áp dụng triệt để <strong>Agile/SCRUM</strong> và các phương pháp đánh giá chất lượng (Pareto, Ishikawa), thiết lập tiêu chuẩn đầu ra (DoD) cho Bug/Feature, <strong>giảm tỉ lệ lỗi toàn hệ thống 10% (năm 1) và 30% (năm 2)</strong>.', item2: 'Tiên phong áp dụng AI (AWS facial recognition, Hanet camera API) tự động hóa điểm danh, <strong>giảm 30% thời gian nhận xét hoạt động học sinh cho giáo viên</strong>.' },
+                            phase1: { title: '09/2023 – 03/2024: Dự án Bóc Tách Microservices Phase 1', item1: 'Dẫn dắt đội <strong>5-6 thành viên</strong> bóc tách các Module có lượng Request lớn (Điểm danh, Album, Core, Bài viết, Nhận xét) khỏi Server vật lý.', item2: 'Kết quả: <strong>Giảm tải cho server 5-10% chi phí vận hành</strong>, cải thiện hiệu suất với tiêu chuẩn <strong>Response Time bắt buộc <3s/request</strong>.' },
+                            parentapi: { title: '04/2024 – 08/2024: Tái Kiến Trúc API Ứng Dụng Phụ Huynh', item1: 'Thiết kế lại toàn bộ API APPPH (800K người dùng) theo mô hình <strong>DDD và Design Pattern</strong>, <strong>giảm 30% tải cho Server chịu tải cũ</strong>.', item2: 'Tiêu chuẩn kỹ thuật: <strong>Response Time API <1s</strong>, bổ sung <strong>Unit Test</strong> với <strong>độ bao phủ Test Case >85%</strong>.', item3: 'Tích hợp các cổng thanh toán (VNPay, Vietinbank, Gpay, Napas) vào hệ thống API.' },
+                            finance: { title: '09/2024 – 12/2024: Rebuild Hệ thống Tài chính', item1: 'Chủ trì rebuild tính năng Tài chính cốt lõi, xử lý các tác vụ tính tiền phức tạp với nhiều công thức được áp dụng cùng lúc.', item2: 'Tiêu chuẩn kỹ thuật: API <1s, áp dụng DDD, đạt <strong>độ bao phủ Test Case >90%</strong> (<strong>hơn 5000 test case</strong> cho 150 APIs).' },
+                            ai: { title: '01/2025 – 05/2025: Ứng dụng AI Agent và Bảo trì Nâng cấp', item1: 'Quản lý đội <strong>4 thành viên</strong> bảo trì, nâng cấp, và tối ưu Request/Process có độ phức tạp cao, <strong>giảm tỉ lệ lỗi 30%</strong> so với cùng kỳ năm trước.', item2: 'Ứng dụng <strong>AI Agent</strong> để <strong>tăng hiệu suất team 15-30%</strong>. Thiết kế <strong>Prompt Engineering chuẩn</strong> theo kiến trúc, giúp <strong>Gen code nhanh</strong> từ yêu cầu BA và giảm thời gian Review/Sửa lỗi AI.' },
+                            migrate: { title: '05/2025 – 10/2025: Thiết kế Hệ thống Migrate Dữ liệu Lớn (MySQL -> Mongo)', item1: 'Thiết kế hệ thống <strong>migrate hàng triệu bản ghi trong 30-60 phút</strong> bằng cách giả lập thao tác người dùng và chạy rẽ nhánh (Node.js).', item2: 'Đảm bảo dữ liệu khách hàng được bảo toàn, <strong>không ảnh hưởng</strong> tới quá trình sử dụng của nhân viên trường và phụ huynh.' },
+                            dev: { title: 'Developer | CÔNG TY CỔ PHẦN KIDSONLINE', item1: 'Phát triển các tính năng cốt lõi cho hệ thống Kidsonline bằng Laravel, bao gồm điểm danh nhận diện khuôn mặt (tích hợp AWS), upload video AWS, nhận diện học sinh trong album ảnh.', item2: 'Xây dựng hệ thống gửi notification tới 1 triệu người dùng trong thời gian cao điểm, <strong>đảm bảo tỷ lệ gửi thành công 99%</strong>.', item3: 'Thành thạo Git, Deploy code server CI/CD, có kinh nghiệm làm việc với Firebase, Docker, K8s, làm việc với quy trình Agile, SCRUM.', item4: 'Xây dựng API phát triển cho đội app Kidsonline, Kidsonline teacher.' }
+                        },
+                        haposoft: { title: 'Thực tập sinh lập trình web PHP, Laravel | CÔNG TY TNHH HAPOSOFT', item1: 'Được training kiến thức cơ bản về lập trình web (HTML&CSS, Bootstrap responsive, SCSS, Javascript, Jquery, PHP, Laravel & MySQL, Ajax).', item2: 'Hoàn thành Project thực tế: Quản lý Nhân sự với các chức năng CRUD cơ bản, phân quyền, tìm kiếm.' },
+                        seo: { title: 'Chuyên viên SEO | CÔNG TY THƯƠNG MẠI VÀ ĐẦU TƯ XNK HÙNG THỊNH', item1: 'Tối ưu Website chuẩn SEO, xây dựng backlink và sử dụng tool để tăng traffic tự nhiên.' },
+                        mko: { title: 'CTV Fanpage | CÔNG TY CỔ PHẦN DỊCH VỤ PHÁT TRIỂN NGƯỜI DÙNG MKO', item1: 'Quản lý nội dung và tương tác trên các Fanpage giải trí/tin tức lớn trên Facebook, Zalo, và website Xem.vn.' }
+                    },
+                    projects: {
+                        title: 'Dự Án Freelance Đa Dạng',
+                        subtitle: 'Bên cạnh công việc chính, tôi còn tham gia vào nhiều dự án freelance, áp dụng kỹ năng để giải quyết các bài toán kinh doanh thực tế trong nhiều lĩnh vực khác nhau.',
+                        service: { title: 'Nền tảng Dịch vụ (Mỹ)', desc: 'Phát triển ứng dụng tìm người giúp việc, dọn nhà, dọn văn phòng theo mô hình Btaskee, <strong>giúp đơn vị khách hàng mở rộng dịch vụ sang các thị trường mới</strong>.' },
+                        wms: { title: 'Quản lý Kho (Việt Nam)', desc: 'Xây dựng web quản lý xuất nhập tồn kho, <strong>tối ưu hóa quy trình vận hành, giúp giảm 10% chi phí lưu kho</strong>.' },
+                        ecom: { title: 'Thương mại điện tử', desc: 'Phát triển website rao vặt Chomang.vn với các tính năng tương tự Chợ Tốt.' },
+                        schoolhealth: { title: 'Sức khỏe Học đường', desc: 'Đóng góp phát triển hệ thống cho Bộ GD&ĐT (suckhoe-tuonglai.moet.gov.vn).' },
+                        edtech: { title: 'Giáo dục trực tuyến', desc: 'Xây dựng website học tiếng Nhật tanoshi-nihongo.nextcolabs.com.' },
+                        seo: { title: 'Website Doanh nghiệp & SEO', desc: 'Dựng và tùy chỉnh CMS cho nhiều website công ty, bảo tàng, và tối ưu SEO (Butuni.com).', item1: 'Tối ưu chuẩn SEO lại website, lên Keyword Plan, quản lý CTV, đẩy top từ khóa.', item2: 'Kết quả: Các từ khóa TOP 1-10 (áo da thật, áo khoác da thật,...), <strong>đẩy doanh thu quảng cáo lên 10tr/tuần (50% tổng doanh thu)</strong>.' },
+                        demo: 'Xem Demo',
+                        demoCustomer: 'Xem Demo (Customer)',
+                        demoVendor: 'Xem Demo (Vendor)'
+                    },
+                    skills: { title: 'Hệ Thống Kỹ Năng', subtitle: 'Tổng hợp các công nghệ và phương pháp luận chính mà tôi đã sử dụng và làm chủ trong suốt quá trình phát triển sự nghiệp.' },
+                    testimonials: { title: 'Đánh Giá & Thành Tích', subtitle: 'Những phản hồi và thành tích nổi bật trong sự nghiệp' },
+                    badges: { top: 'Top Performer', 'top.desc': 'Giảm bug 30% trong 2 năm', quality: 'Quality Champion', 'quality.desc': 'Test Coverage >90%', innovation: 'Innovation Leader', 'innovation.desc': 'Tiên phong AI Integration', team: 'Team Builder', 'team.desc': 'Tăng hiệu suất team 15-30%' },
+                    testi: {
+                        1: { title: 'Technical Director - Kidsonline', role: 'Quản lý trực tiếp', body: '"Thành là một Team Leader xuất sắc với khả năng kiến trúc hệ thống mạnh mẽ. Anh ấy đã dẫn dắt team rebuild toàn bộ hệ thống tài chính với độ phức tạp cao, đạt test coverage >90% và giảm tỉ lệ lỗi đáng kể. Đặc biệt, việc áp dụng AI Agent đã giúp team tăng hiệu suất làm việc rõ rệt."' },
+                        2: { title: 'Senior Developer - Kidsonline', role: 'Đồng nghiệp', body: '"Làm việc với Thành rất hiệu quả. Anh luôn có cái nhìn tổng quan về kiến trúc hệ thống và thiết lập các chuẩn kỹ thuật rõ ràng (API response time, test coverage). Code review của anh rất chi tiết và mang tính xây dựng, giúp team học hỏi được nhiều về best practices và design patterns."' },
+                        3: { title: 'Khách hàng Freelance - Mỹ', body: '"Thanh delivered an excellent service platform for our business in the US market. Professional communication, clean code architecture, and on-time delivery. The system handles our vendor-customer matching efficiently. Highly recommend for complex backend projects."' },
+                        4: { title: 'Khách hàng Freelance - Việt Nam', body: '"Hệ thống quản lý kho của Thành giúp chúng tôi tiết kiệm 10% chi phí lưu kho và tối ưu hóa quy trình vận hành. Giao diện thân thiện, dễ sử dụng cho nhân viên. Hỗ trợ nhiệt tình sau bàn giao. Rất đáng tin cậy cho các dự án dài hạn."' }
+                    },
+                    edu: { title: 'Học Vấn', subtitle: 'Nền tảng giáo dục vững chắc định hình năng lực chuyên môn của tôi.', tlu: { title: 'ĐẠI HỌC THỦY LỢI', desc: 'Kỹ sư Công nghệ thông tin - Chuyên ngành: Công Nghệ Thông Tin' }, english: { title: 'Tiếng Anh', desc: 'Đọc hiểu tốt tài liệu chuyên ngành.' } },
+                    contact: { title: 'Sẵn sàng hợp tác', subtitle: 'Hãy kết nối với tôi để cùng thảo luận về các cơ hội phát triển sản phẩm công nghệ đột phá.', sendEmail: 'Gửi Email' },
+                    footer: { madeWith: 'Xây dựng bằng tâm huyết.' },
+                    chart: {
+                        labels: ['PHP & Laravel','Kiến trúc (DDD, Microservices)','Cloud & DevOps (AWS, Docker)','Cơ sở dữ liệu (MySQL, Firebase)','Quản lý dự án (Agile, SCRUM)','Frontend (JS, HTML, CSS)','Công nghệ mới (AI, Payment)','SEO & Digital Marketing'],
+                        dataset: 'Mức độ chuyên môn',
+                        tooltip: ' Mức độ: '
+                    }
+                },
+                en: {
+                    meta: {
+                        title: 'Nguyen Tat Thanh | Backend Team Lead (PHP/Laravel) - System Architect',
+                        description: 'Nguyen Tat Thanh - Backend Team Lead (PHP/Laravel) with 5 years of experience. System Architecture (DDD, Microservices), AI Integration, and large-scale financial platforms (800K users, 3M requests/day).',
+                        ogTitle: 'Nguyen Tat Thanh - Backend Team Lead & System Architect',
+                        ogDesc: 'Backend Team Lead PHP/Laravel with 5 years of experience. System Architecture, AI Integration, handling 800K users and 3M requests/day.'
+                    },
+                    brand: { name: 'Nguyen Tat Thanh' },
+                    nav: { intro: 'About', why: 'Why me', experience: 'Experience', projects: 'Projects', skills: 'Skills', testimonials: 'Testimonials', contact: 'Contact' },
+                    intro: {
+                        avatarAlt: 'Profile photo of Nguyen Tat Thanh',
+                        name: 'Nguyen Tat Thanh',
+                        role: 'Backend Engineer & Team Lead (PHP | Laravel) | System Architect',
+                        github: 'GitHub',
+                        summary: 'With 5 years of hands-on experience and 2 years leading teams, I architect and deliver robust technology solutions. I translate complex requirements into high-quality products, focusing on modern architectures (DDD, Microservices), AI integration, and large-scale fintech platforms.',
+                        download: 'Download CV (PDF)',
+                        contactNow: 'Contact now'
+                    },
+                    stats: {
+                        yearsExperience: 'Years of experience',
+                        yearsLead: 'Years as Team Lead',
+                        thousandUsers: 'Thousand users',
+                        millionReqPerDay: 'Million requests/day'
+                    },
+                    why: {
+                        title: 'Why Choose Me?',
+                        subtitle: 'Unique value I bring to your organization',
+                        track: { title: 'Proven Track Record', item1: 'Reduced system defect rate by <strong>10–30%</strong> over 2 years', item2: 'Reliably handled <strong>3M requests/day</strong>', item3: 'Rebuilt APIs for <strong>800K users</strong> with >85% test coverage' },
+                        tech: { title: 'Technical Excellence', item1: 'Deep expertise in <strong>DDD & Microservices</strong> architecture', item2: 'Pioneer in <strong>AI Integration</strong> (AWS Rekognition, AI Agent)', item3: 'Defined engineering standards: API <1s, Test Coverage >90%' },
+                        lead: { title: 'Leadership & Process', item1: 'Led teams of <strong>4–6 developers</strong> effectively', item2: 'Applied <strong>Agile/SCRUM</strong> with Pareto, Ishikawa, DoD', item3: 'Improved team throughput by <strong>15–30%</strong> via AI Agents & Prompt Engineering' },
+                        philosophy: { title: 'Working Philosophy', body: 'I build <strong>resilient, scalable</strong> systems and prioritize <strong>code quality</strong>. Every line of code solves today’s problem and lays a foundation for tomorrow. I keep learning (AI, Cloud, architecture patterns) and share knowledge through internal seminars to elevate the entire team.' }
+                    },
+                    exp: {
+                        title: 'Career Journey',
+                        subtitle: 'Key roles and responsibilities across my career, from early projects to current leadership.',
+                        kidsonline: {
+                            lead: { title: 'Team Lead | KIDSONLINE JSC', item1: '<strong>Overview:</strong> Enforced <strong>Agile/SCRUM</strong> with quality analytics (Pareto, Ishikawa), defined DoD for Bugs/Features, <strong>reduced system defect rate by 10% (Y1) and 30% (Y2)</strong>.', item2: 'Pioneered AI (AWS facial recognition, Hanet camera API) for automated attendance, <strong>cut 30% of teachers’ activity review time</strong>.' },
+                            phase1: { title: '09/2023 – 03/2024: Microservices Extraction – Phase 1', item1: 'Led a <strong>5–6 member</strong> team to decouple high-traffic modules (Attendance, Album, Core, Posts, Reviews) from physical servers.', item2: 'Outcome: <strong>5–10% infra cost reduction</strong>, enforced <strong>Response Time <3s/request</strong>.' },
+                            parentapi: { title: '04/2024 – 08/2024: Parent App API Re-architecture', item1: 'Redesigned entire Parent App APIs (800K users) with <strong>DDD & Design Patterns</strong>, <strong>reduced legacy load by 30%</strong>.', item2: 'Standards: <strong>API response <1s</strong>, added <strong>Unit Tests</strong> with <strong>>85% coverage</strong>.', item3: 'Integrated payment gateways (VNPay, Vietinbank, Gpay, Napas).' },
+                            finance: { title: '09/2024 – 12/2024: Financial System Rebuild', item1: 'Owned core Finance features, handling complex billing logic with concurrent formulas.', item2: 'Standards: API <1s, DDD applied, <strong>>90% test coverage</strong> (<strong>5,000+ cases</strong> across 150 APIs).' },
+                            ai: { title: '01/2025 – 05/2025: AI Agent Adoption & Sustaining', item1: 'Managed a <strong>4-member</strong> sustaining team; optimized high-complexity requests/processes, <strong>reduced defects by 30%</strong> YoY.', item2: 'Adopted <strong>AI Agents</strong> to <strong>improve throughput by 15–30%</strong>. Standardized <strong>Prompt Engineering</strong> aligned with architecture, accelerating BA-to-code and reducing AI rework.' },
+                            migrate: { title: '05/2025 – 10/2025: Large-scale Data Migration (MySQL -> Mongo)', item1: 'Designed migration to move <strong>millions of records in 30–60 minutes</strong> via user-action emulation and branching (Node.js).', item2: 'Guaranteed data integrity with <strong>zero disruption</strong> to staff and parents.' },
+                            dev: { title: 'Developer | KIDSONLINE JSC', item1: 'Built core Kidsonline features in Laravel: attendance with facial recognition (AWS), AWS video upload, student detection in photo albums.', item2: 'Built a push notification system for 1M users in peak time with <strong>99% delivery rate</strong>.', item3: 'Proficient with Git, CI/CD deployments; experience with Firebase, Docker, K8s; Agile/SCRUM workflows.', item4: 'Implemented APIs for Kidsonline app and Kidsonline Teacher app.' }
+                        },
+                        haposoft: { title: 'PHP/Laravel Web Intern | HAPOSOFT CO., LTD', item1: 'Trained in web fundamentals (HTML/CSS, responsive Bootstrap, SCSS, Javascript, jQuery, PHP, Laravel & MySQL, Ajax).', item2: 'Completed a real-world HRM project: CRUD, RBAC, and search.' },
+                        seo: { title: 'SEO Specialist | HUNG THINH IMPORT-EXPORT & TRADING', item1: 'Optimized sites for SEO, built backlinks, and leveraged tools to grow organic traffic.' },
+                        mko: { title: 'Fanpage Operator | MKO USER GROWTH SERVICES JSC', item1: 'Managed content and engagement on major entertainment/news fanpages across Facebook, Zalo, and Xem.vn.' }
+                    },
+                    projects: {
+                        title: 'Diverse Freelance Projects',
+                        subtitle: 'Beyond my full-time role, I deliver freelance solutions across domains, solving real business problems with pragmatic engineering.',
+                        service: { title: 'Service Platform (US)', desc: 'Built a platform for household/office services (Btaskee-like), <strong>enabling client expansion into new markets</strong>.' },
+                        wms: { title: 'Warehouse Management (VN)', desc: 'Developed an inventory management web app, <strong>streamlining operations and cutting storage costs by 10%</strong>.' },
+                        ecom: { title: 'E-commerce', desc: 'Built Chomang.vn classifieds with features comparable to Cho Tot.' },
+                        schoolhealth: { title: 'School Health', desc: 'Contributed to MOET platform (suckhoe-tuonglai.moet.gov.vn).' },
+                        edtech: { title: 'Online Education', desc: 'Built a Japanese learning site tanoshi-nihongo.nextcolabs.com.' },
+                        seo: { title: 'Corporate Websites & SEO', desc: 'Built and customized CMS for companies and museums; optimized SEO (Butuni.com).', item1: 'Reworked on-page SEO, built keyword plans, coordinated contributors, pushed top keywords.', item2: 'Results: Top 1–10 for key queries (genuine leather jacket, ...), <strong>boosted ad revenue to 10M VND/week (50% of total)</strong>.' },
+                        demo: 'View Demo',
+                        demoCustomer: 'View Demo (Customer)',
+                        demoVendor: 'View Demo (Vendor)'
+                    },
+                    skills: { title: 'Skills Matrix', subtitle: 'Technologies and methodologies I practice and have mastered throughout my career.' },
+                    testimonials: { title: 'Testimonials & Achievements', subtitle: 'Recognitions and notable achievements' },
+                    badges: { top: 'Top Performer', 'top.desc': 'Reduced bugs by 30% in 2 years', quality: 'Quality Champion', 'quality.desc': 'Test Coverage >90%', innovation: 'Innovation Leader', 'innovation.desc': 'AI Integration pioneer', team: 'Team Builder', 'team.desc': 'Team throughput +15–30%' },
+                    testi: {
+                        1: { title: 'Technical Director - Kidsonline', role: 'Direct manager', body: '"Thanh is an outstanding Team Lead with strong system architecture mindset. He led a complex finance system rebuild, achieved >90% test coverage and significantly reduced defects. AI Agent adoption notably increased team productivity."' },
+                        2: { title: 'Senior Developer - Kidsonline', role: 'Colleague', body: '"Working with Thanh is efficient. He maintains architectural vision and clear engineering standards (API response time, test coverage). His reviews are thorough and constructive, leveling up the team on best practices and design patterns."' },
+                        3: { title: 'Freelance Client - US', body: '"Thanh delivered an excellent service platform for our business in the US market. Professional communication, clean code architecture, and on-time delivery. The system handles our vendor-customer matching efficiently. Highly recommend for complex backend projects."' },
+                        4: { title: 'Freelance Client - Vietnam', body: '"Thanh’s WMS helped us save 10% on storage cost and optimize operations. Friendly UI, easy for staff. Dedicated post-handover support. Very reliable for long-term projects."' }
+                    },
+                    edu: { title: 'Education', subtitle: 'Educational foundation shaping my engineering capabilities.', tlu: { title: 'THUY LOI UNIVERSITY', desc: 'B.Eng. in Information Technology' }, english: { title: 'English', desc: 'Strong reading comprehension of technical materials.' } },
+                    contact: { title: 'Open to collaborate', subtitle: 'Let’s connect to discuss opportunities to build impactful tech products.', sendEmail: 'Send Email' },
+                    footer: { madeWith: 'Built with dedication.' },
+                    chart: {
+                        labels: ['PHP & Laravel','Architecture (DDD, Microservices)','Cloud & DevOps (AWS, Docker)','Databases (MySQL, Firebase)','Project Management (Agile, SCRUM)','Frontend (JS, HTML, CSS)','Emerging Tech (AI, Payment)','SEO & Digital Marketing'],
+                        dataset: 'Proficiency',
+                        tooltip: ' Level: '
+                    }
+                }
+            };
+
+            let currentLang = (localStorage.getItem('cv_lang') || 'vi');
+
+            const t = (key) => {
+                const parts = key.split('.');
+                let node = translations[currentLang];
+                for (const p of parts) {
+                    if (node && Object.prototype.hasOwnProperty.call(node, p)) node = node[p]; else return null;
+                }
+                return node;
+            };
+
+            const applyI18n = () => {
+                document.documentElement.setAttribute('lang', currentLang);
+                const meta = t('meta');
+                if (meta) {
+                    const titleEl = document.getElementById('page-title');
+                    if (titleEl) titleEl.textContent = meta.title;
+                    const md = document.getElementById('meta-description');
+                    if (md) md.setAttribute('content', meta.description);
+                    const ogt = document.getElementById('og-title');
+                    if (ogt) ogt.setAttribute('content', meta.ogTitle);
+                    const ogd = document.getElementById('og-description');
+                    if (ogd) ogd.setAttribute('content', meta.ogDesc);
+                    const twt = document.getElementById('twitter-title');
+                    if (twt) twt.setAttribute('content', meta.title);
+                    const twd = document.getElementById('twitter-description');
+                    if (twd) twd.setAttribute('content', meta.description);
+                    document.title = meta.title;
+                }
+
+                document.querySelectorAll('[data-i18n]').forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    const value = t(key);
+                    if (typeof value === 'string') {
+                        el.innerHTML = value;
+                    }
+                });
+                document.querySelectorAll('[data-i18n-attr]').forEach(el => {
+                    const attrKey = el.getAttribute('data-i18n-attr');
+                    // format: attr:key
+                    const [attr, key] = attrKey.split(':');
+                    const value = t(key);
+                    if (value) el.setAttribute(attr, value);
+                });
+
+                // Re-label chart if already created
+                if (window._skillsChart) {
+                    const chartT = t('chart');
+                    window._skillsChart.data.labels = chartT.labels;
+                    window._skillsChart.data.datasets[0].label = chartT.dataset;
+                    window._skillsChart.options.plugins.tooltip.callbacks.label = function(context){
+                        return (chartT.tooltip || ' ') + context.raw + '%';
+                    };
+                    window._skillsChart.update();
+                }
+
+                // Update number suffixes formatting display in counters only after final value set
+                document.querySelectorAll('.stat-number').forEach(counter => {
+                    const target = +counter.getAttribute('data-target');
+                    if (target >= 800) counter.innerText = '800K+'; else if (target === 3) counter.innerText = '3M+'; else counter.innerText = target.toString();
+                });
+            };
+
+            const switchLang = (lang) => {
+                currentLang = lang;
+                localStorage.setItem('cv_lang', lang);
+                applyI18n();
+            };
+
+            const btnVi = document.getElementById('btn-vi');
+            const btnEn = document.getElementById('btn-en');
+            const btnViM = document.getElementById('btn-vi-mobile');
+            const btnEnM = document.getElementById('btn-en-mobile');
+            if (btnVi) btnVi.addEventListener('click', () => switchLang('vi'));
+            if (btnEn) btnEn.addEventListener('click', () => switchLang('en'));
+            if (btnViM) btnViM.addEventListener('click', () => { switchLang('vi'); });
+            if (btnEnM) btnEnM.addEventListener('click', () => { switchLang('en'); });
             // Mobile Menu Toggle
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -667,9 +913,10 @@
                         counter.innerText = Math.ceil(count + inc);
                         setTimeout(updateCount, 1);
                     } else {
-                        counter.innerText = target.toLocaleString('vi-VN') + (target >= 800 ? 'K' : (target === 3 ? 'M' : ''));
+                        // Final display will be set depending on language below
                         if(target === 800) counter.innerText = '800K+';
-                        if(target === 3) counter.innerText = '3M+';
+                        else if(target === 3) counter.innerText = '3M+';
+                        else counter.innerText = target.toString();
                     }
                 };
                 updateCount();
@@ -715,18 +962,9 @@
             // Skills Chart
             const skillsChartCanvas = document.getElementById('skillsChart');
             const skillsData = {
-                labels: [
-                    'PHP & Laravel',
-                    'Kiến trúc (DDD, Microservices)',
-                    'Cloud & DevOps (AWS, Docker)',
-                    'Cơ sở dữ liệu (MySQL, Firebase)',
-                    'Quản lý dự án (Agile, SCRUM)',
-                    'Frontend (JS, HTML, CSS)',
-                    'Công nghệ mới (AI, Payment)',
-                    'SEO & Digital Marketing',
-                ],
+                labels: translations[currentLang].chart.labels,
                 datasets: [{
-                    label: 'Mức độ chuyên môn',
+                    label: translations[currentLang].chart.dataset,
                     data: [95, 90, 80, 88, 85, 75, 85, 70],
                     backgroundColor: 'rgba(5, 150, 105, 0.6)', /* Emerald 600 with opacity */
                     borderColor: 'rgba(5, 150, 105, 1)', /* Emerald 600 */
@@ -753,7 +991,8 @@
                         cornerRadius: 4,
                         callbacks: {
                             label: function(context) {
-                                return ` Mức độ: ${context.raw}%`;
+                                const chartT = translations[currentLang].chart;
+                                return (chartT.tooltip || ' ') + context.raw + '%';
                             }
                         }
                     }
@@ -787,7 +1026,7 @@
             };
 
             const createChart = () => {
-                new Chart(skillsChartCanvas, {
+                window._skillsChart = new Chart(skillsChartCanvas, {
                     type: 'bar',
                     data: skillsData,
                     options: chartOptions
@@ -806,6 +1045,9 @@
             if(skillsChartCanvas) {
                 chartObserver.observe(skillsChartCanvas);
             }
+
+            // Initial apply of selected language
+            applyI18n();
         });
     </script>
 
