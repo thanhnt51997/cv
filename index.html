@@ -93,6 +93,109 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            cursor: pointer;
+        }
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: auto;
+        }
+        .lightbox-content {
+            max-width: 95%;
+            max-height: 95%;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            animation: zoomIn 0.3s;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .lightbox-close:hover {
+            color: #059669;
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        }
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .gallery-item {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 16/9;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item::after {
+            content: '🔍';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 24px;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -106,6 +209,7 @@
                 <a href="#why-me" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.why">Tại sao chọn tôi</a>
                 <a href="#experience" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.experience">Kinh nghiệm</a>
                 <a href="#projects" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.projects">Dự án</a>
+                <a href="#project-gallery" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.gallery">Hình ảnh</a>
                 <a href="#skills" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.skills">Kỹ năng</a>
                 <a href="#testimonials" class="text-gray-600 hover:text-emerald-600 transition-colors" data-i18n="nav.testimonials">Đánh giá</a>
                 <a href="#contact" class="bg-emerald-600 text-white px-4 py-2 rounded-full hover:bg-emerald-700 transition-colors" data-i18n="nav.contact">Liên hệ</a>
@@ -124,8 +228,9 @@
             <a href="#intro" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.intro">Giới thiệu</a>
             <a href="#why-me" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.why">Tại sao chọn tôi</a>
             <a href="#experience" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.experience">Kinh nghiệm</a>
-            <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.projects">Dự án</a>
-            <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.skills">Kỹ năng</a>
+                <a href="#projects" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.projects">Dự án</a>
+                <a href="#project-gallery" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.gallery">Hình ảnh</a>
+                <a href="#skills" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.skills">Kỹ năng</a>
             <a href="#testimonials" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 rounded" data-i18n="nav.testimonials">Đánh giá</a>
             <a href="#contact" class="block mt-2 py-2 px-4 text-sm text-white bg-emerald-600 hover:bg-emerald-700 rounded text-center" data-i18n="nav.contact">Liên hệ</a>
             <div class="flex items-center gap-2 mt-2 px-4">
@@ -423,9 +528,9 @@
             <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all flex flex-col justify-between animate-on-scroll">
                 <div>
                     <h3 class="font-bold text-lg mb-2 text-gray-800" data-i18n="projects.schoolhealth.title">Sức khỏe Học đường</h3>
-                    <p class="text-gray-600 text-sm mb-4" data-i18n="projects.schoolhealth.desc">Đóng góp phát triển hệ thống cho Bộ GD&ĐT (suckhoe-tuonglai.moet.gov.vn).</p>
+                    <p class="text-gray-600 text-sm mb-4" data-i18n="projects.schoolhealth.desc">Đóng góp phát triển hệ thống cho Bộ GD&ĐT (suckhoetuonglai.omt.vn).</p>
                 </div>
-                <a href="https://suckhoe-tuonglai.moet.gov.vn" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
+                <a href="https://suckhoetuonglai.omt.vn/" target="_blank" class="block w-full text-center bg-emerald-600 text-white py-2 px-4 rounded-full hover:bg-emerald-700 transition-colors text-sm">
                     <span data-i18n="projects.demo">Xem Demo</span>
                 </a>
             </div>
@@ -448,6 +553,81 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="project-gallery" class="mb-16 md:mb-24 animate-on-scroll">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-2" data-i18n="gallery.title">Hình Ảnh Dự Án Freelancer</h2>
+        <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-i18n="gallery.subtitle">Tham khảo một số hình ảnh từ các dự án đã thực hiện. Click vào ảnh để xem chi tiết.</p>
+        
+        <div class="max-w-6xl mx-auto space-y-12">
+            <!-- Dự án Sức khỏe Học đường -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-xl font-bold text-gray-800" data-i18n="gallery.schoolhealth.title">Dự án Sức khỏe Học đường</h3>
+                    <a href="https://suckhoetuonglai.omt.vn/" target="_blank" class="text-emerald-600 hover:text-emerald-700 text-sm font-semibold flex items-center gap-1">
+                        <span data-i18n="gallery.viewDemo">Xem Demo</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                        </svg>
+                    </a>
+                </div>
+                <p class="text-gray-600 text-sm mb-4" data-i18n="gallery.schoolhealth.desc">Hệ thống quản lý sức khỏe học đường cho Bộ GD&ĐT</p>
+                <div class="project-gallery">
+                    <div class="gallery-item" onclick="openLightbox('./SKTL/Screenshot From 2026-01-08 20-53-55.png')">
+                        <img src="./SKTL/Screenshot From 2026-01-08 20-53-55.png" alt="Sức khỏe Học đường - Ảnh 1" loading="lazy">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('./SKTL/Screenshot From 2026-01-08 20-54-38.png')">
+                        <img src="./SKTL/Screenshot From 2026-01-08 20-54-38.png" alt="Sức khỏe Học đường - Ảnh 2" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dự án Halome -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-800 mb-4" data-i18n="gallery.hallome.title">Dự án Halome</h3>
+                <p class="text-gray-600 text-sm mb-4" data-i18n="gallery.hallome.desc">Hệ thống quản lý và tương tác</p>
+                <div class="project-gallery">
+                    <div class="gallery-item" onclick="openLightbox('./Hallome/photo_2024-05-25_20-55-32.jpg')">
+                        <img src="./Hallome/photo_2024-05-25_20-55-32.jpg" alt="Halome - Ảnh 1" loading="lazy">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('./Hallome/photo_2024-05-26_23-15-47.jpg')">
+                        <img src="./Hallome/photo_2024-05-26_23-15-47.jpg" alt="Halome - Ảnh 2" loading="lazy">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('./Hallome/photo_2024-05-30_09-21-12.jpg')">
+                        <img src="./Hallome/photo_2024-05-30_09-21-12.jpg" alt="Halome - Ảnh 3" loading="lazy">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('./Hallome/photo_2024-06-05_11-23-46.jpg')">
+                        <img src="./Hallome/photo_2024-06-05_11-23-46.jpg" alt="Halome - Ảnh 4" loading="lazy">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('./Hallome/photo_2024-07-02_22-57-08.jpg')">
+                        <img src="./Hallome/photo_2024-07-02_22-57-08.jpg" alt="Halome - Ảnh 5" loading="lazy">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dự án Quản lý Kho -->
+            <div class="bg-white p-6 rounded-xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-800 mb-4" data-i18n="gallery.wms.title">Dự án Quản lý Kho</h3>
+                <p class="text-gray-600 text-sm mb-4" data-i18n="gallery.wms.desc">Hệ thống quản lý xuất nhập tồn kho</p>
+                <div class="project-gallery">
+                    <div class="gallery-item" onclick="openLightbox('./XNT/46ba6366-dae3-4b6e-a898-d656ae3607e1.jpeg')">
+                        <img src="./XNT/46ba6366-dae3-4b6e-a898-d656ae3607e1.jpeg" alt="Quản lý Kho - Ảnh 1" loading="lazy">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('./XNT/5e8d987e-9e80-461b-ae6a-5c64a69d0dc5.jpeg')">
+                        <img src="./XNT/5e8d987e-9e80-461b-ae6a-5c64a69d0dc5.jpeg" alt="Quản lý Kho - Ảnh 2" loading="lazy">
+                    </div>
+                    <div class="gallery-item" onclick="openLightbox('./XNT/bf14a23f-45a2-428a-bf04-a3295a29aee7.jpeg')">
+                        <img src="./XNT/bf14a23f-45a2-428a-bf04-a3295a29aee7.jpeg" alt="Quản lý Kho - Ảnh 3" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lightbox Modal -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="lightbox-close" onclick="event.stopPropagation(); closeLightbox()">&times;</span>
+            <img id="lightbox-img" class="lightbox-content" src="" alt="Hình ảnh dự án">
         </div>
     </section>
 
@@ -664,7 +844,7 @@
                     ogDesc: 'Team Leader Backend PHP/Laravel với 5 năm kinh nghiệm, chuyên gia kiến trúc hệ thống, AI Integration, xử lý 800K users và 3M requests/day'
                 },
                 brand: { name: 'Nguyễn Tất Thành' },
-                nav: { intro: 'Giới thiệu', why: 'Tại sao chọn tôi', experience: 'Kinh nghiệm', projects: 'Dự án', skills: 'Kỹ năng', testimonials: 'Đánh giá', contact: 'Liên hệ' },
+                nav: { intro: 'Giới thiệu', why: 'Tại sao chọn tôi', experience: 'Kinh nghiệm', projects: 'Dự án', gallery: 'Hình ảnh', skills: 'Kỹ năng', testimonials: 'Đánh giá', contact: 'Liên hệ' },
                 intro: {
                     avatarAlt: 'Ảnh đại diện Nguyễn Tất Thành',
                     name: 'Nguyễn Tất Thành',
@@ -710,12 +890,20 @@
                     service: { title: 'Nền tảng Dịch vụ (Mỹ)', desc: 'Phát triển ứng dụng tìm người giúp việc, dọn nhà, dọn văn phòng theo mô hình Btaskee, <strong>giúp đơn vị khách hàng mở rộng dịch vụ sang các thị trường mới</strong>.' },
                     wms: { title: 'Quản lý Kho (Việt Nam)', desc: 'Xây dựng web quản lý xuất nhập tồn kho, <strong>tối ưu hóa quy trình vận hành, giúp giảm 10% chi phí lưu kho</strong>.' },
                     ecom: { title: 'Thương mại điện tử', desc: 'Phát triển website rao vặt Chomang.vn với các tính năng tương tự Chợ Tốt.' },
-                    schoolhealth: { title: 'Sức khỏe Học đường', desc: 'Đóng góp phát triển hệ thống cho Bộ GD&ĐT (suckhoe-tuonglai.moet.gov.vn).' },
+                    schoolhealth: { title: 'Sức khỏe Học đường', desc: 'Đóng góp phát triển hệ thống cho Bộ GD&ĐT (suckhoetuonglai.omt.vn).' },
                     edtech: { title: 'Giáo dục trực tuyến', desc: 'Xây dựng website học tiếng Nhật tanoshi-nihongo.nextcolabs.com.' },
                     seo: { title: 'Website Doanh nghiệp & SEO', desc: 'Dựng và tùy chỉnh CMS cho nhiều website công ty, bảo tàng, và tối ưu SEO (Butuni.com).', item1: 'Tối ưu chuẩn SEO lại website, lên Keyword Plan, quản lý CTV, đẩy top từ khóa.', item2: 'Kết quả: Các từ khóa TOP 1-10 (áo da thật, áo khoác da thật,...), <strong>đẩy doanh thu quảng cáo lên 10tr/tuần (50% tổng doanh thu)</strong>.' },
                     demo: 'Xem Demo',
                     demoCustomer: 'Xem Demo (Customer)',
                     demoVendor: 'Xem Demo (Vendor)'
+                },
+                gallery: {
+                    title: 'Hình Ảnh Dự Án Freelancer',
+                    subtitle: 'Tham khảo một số hình ảnh từ các dự án đã thực hiện. Click vào ảnh để xem chi tiết.',
+                    viewDemo: 'Xem Demo',
+                    schoolhealth: { title: 'Dự án Sức khỏe Học đường', desc: 'Hệ thống quản lý sức khỏe học đường cho Bộ GD&ĐT' },
+                    hallome: { title: 'Dự án Halome', desc: 'Hệ thống quản lý và tương tác' },
+                    wms: { title: 'Dự án Quản lý Kho', desc: 'Hệ thống quản lý xuất nhập tồn kho' }
                 },
                 skills: { title: 'Hệ Thống Kỹ Năng', subtitle: 'Tổng hợp các công nghệ và phương pháp luận chính mà tôi đã sử dụng và làm chủ trong suốt quá trình phát triển sự nghiệp.' },
                 testimonials: { title: 'Đánh Giá & Thành Tích', subtitle: 'Những phản hồi và thành tích nổi bật trong sự nghiệp' },
@@ -743,7 +931,7 @@
                     ogDesc: 'Backend Team Lead PHP/Laravel with 5 years of experience. System Architecture, AI Integration, handling 800K users and 3M requests/day.'
                 },
                 brand: { name: 'Nguyen Tat Thanh' },
-                nav: { intro: 'About', why: 'Why me', experience: 'Experience', projects: 'Projects', skills: 'Skills', testimonials: 'Testimonials', contact: 'Contact' },
+                nav: { intro: 'About', why: 'Why me', experience: 'Experience', projects: 'Projects', gallery: 'Gallery', skills: 'Skills', testimonials: 'Testimonials', contact: 'Contact' },
                 intro: {
                     avatarAlt: 'Profile photo of Nguyen Tat Thanh',
                     name: 'Nguyen Tat Thanh',
@@ -789,12 +977,20 @@
                     service: { title: 'Service Platform (US)', desc: 'Built a platform for household/office services (Btaskee-like), <strong>enabling client expansion into new markets</strong>.' },
                     wms: { title: 'Warehouse Management (VN)', desc: 'Developed an inventory management web app, <strong>streamlining operations and cutting storage costs by 10%</strong>.' },
                     ecom: { title: 'E-commerce', desc: 'Built Chomang.vn classifieds with features comparable to Cho Tot.' },
-                    schoolhealth: { title: 'School Health', desc: 'Contributed to MOET platform (suckhoe-tuonglai.moet.gov.vn).' },
+                    schoolhealth: { title: 'School Health', desc: 'Contributed to MOET platform (suckhoetuonglai.omt.vn).' },
                     edtech: { title: 'Online Education', desc: 'Built a Japanese learning site tanoshi-nihongo.nextcolabs.com.' },
                     seo: { title: 'Corporate Websites & SEO', desc: 'Built and customized CMS for companies and museums; optimized SEO (Butuni.com).', item1: 'Reworked on-page SEO, built keyword plans, coordinated contributors, pushed top keywords.', item2: 'Results: Top 1–10 for key queries (genuine leather jacket, ...), <strong>boosted ad revenue to 10M VND/week (50% of total)</strong>.' },
                     demo: 'View Demo',
                     demoCustomer: 'View Demo (Customer)',
                     demoVendor: 'View Demo (Vendor)'
+                },
+                gallery: {
+                    title: 'Freelance Project Gallery',
+                    subtitle: 'Browse screenshots from completed projects. Click images to view in detail.',
+                    viewDemo: 'View Demo',
+                    schoolhealth: { title: 'School Health Project', desc: 'School health management system for MOET' },
+                    hallome: { title: 'Halome Project', desc: 'Management and interaction system' },
+                    wms: { title: 'Warehouse Management Project', desc: 'Inventory management system' }
                 },
                 skills: { title: 'Skills Matrix', subtitle: 'Technologies and methodologies I practice and have mastered throughout my career.' },
                 testimonials: { title: 'Testimonials & Achievements', subtitle: 'Recognitions and notable achievements' },
@@ -1049,6 +1245,29 @@
         // Initial apply of selected language
         applyI18n();
     });
+
+    // Lightbox functions
+    function openLightbox(imageSrc) {
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        lightboxImg.src = imageSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close lightbox on ESC key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            closeLightbox();
+        }
+    });
+
 </script>
 
 </body>
