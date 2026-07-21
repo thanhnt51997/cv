@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" id="meta-description" content="Nguyễn Tất Thành - Senior PHP Developer. 6+ năm PHP/Laravel, queue/job bất đồng bộ, AWS S3, xử lý CSV/Excel, test evidence, phối hợp BrSE. Remote ASAP.">
-    <meta name="keywords" content="Senior PHP Developer, Laravel, PHP, AWS S3, Queue, Batch, MySQL, BrSE, Remote">
+    <meta name="keywords" content="Senior PHP Developer, Laravel, PHP, AWS S3, Lambda, Step Functions, Glue, EventBridge, Queue, MySQL, BrSE, Remote">
     <meta name="author" content="Nguyễn Tất Thành">
 
     <!-- Open Graph Meta Tags -->
@@ -266,7 +266,7 @@
             </a>
         </div>
         <p class="max-w-3xl mx-auto text-gray-600 leading-relaxed mb-6" data-i18n="intro.summary">
-            Senior PHP Developer với 6+ năm làm Web Application bằng PHP/Laravel: phát triển tính năng, bảo trì hệ thống đang chạy, và phối hợp team. Có kinh nghiệm queue/job bất đồng bộ, lưu file trên AWS S3, xử lý CSV/Excel theo nghiệp vụ, viết test và evidence khi bàn giao. Quen làm việc với BrSE trên dự án Nhật. Thường dùng Claude và Cursor, kết hợp skill/tool phù hợp để tăng tốc đọc code, thiết kế và kiểm thử. Có thể remote full-time, start ASAP.
+            Senior PHP Developer với 6+ năm làm Web Application bằng PHP/Laravel: phát triển tính năng, bảo trì hệ thống đang chạy, và phối hợp team. Có kinh nghiệm queue/job bất đồng bộ, AWS (S3, Lambda, Step Functions, Glue ETL, EventBridge), xử lý CSV/Excel theo nghiệp vụ, viết test và evidence khi bàn giao. Quen làm việc với BrSE trên dự án Nhật. Thường dùng Claude và Cursor, kết hợp skill/tool phù hợp để tăng tốc đọc code, thiết kế và kiểm thử. Có thể remote full-time, start ASAP.
         </p>
         <div class="flex justify-center gap-4 mb-8">
             <button onclick="window.print()" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-full transition-all hover:shadow-lg">
@@ -336,19 +336,19 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="why.tech.title">Queue · AWS S3 · File data</h3>
+                <h3 class="text-xl font-bold text-gray-900 mb-3" data-i18n="why.tech.title">Queue · AWS · Data pipeline</h3>
                 <ul class="text-gray-700 space-y-2 text-sm">
                     <li class="flex items-start gap-2">
                         <span class="text-emerald-600 font-bold mt-1">✓</span>
-                        <span data-i18n="why.tech.item1">Job gửi mail / xử lý nền qua <strong>Queue + SQS FIFO</strong>; Artisan command chạy theo lịch</span>
+                        <span data-i18n="why.tech.item1">Job nền qua <strong>Queue + SQS FIFO</strong>; lịch chạy bằng Artisan / <strong>EventBridge</strong></span>
                     </li>
                     <li class="flex items-start gap-2">
                         <span class="text-emerald-600 font-bold mt-1">✓</span>
-                        <span data-i18n="why.tech.item2">Export CSV nghiệp vụ lên <strong>AWS S3</strong> (kèm backup), đối chiếu staging ↔ master</span>
+                        <span data-i18n="why.tech.item2">Pipeline AWS: <strong>Lambda</strong>, <strong>Step Functions</strong>, <strong>Glue Job (ETL)</strong>, lưu/đọc file trên <strong>S3</strong></span>
                     </li>
                     <li class="flex items-start gap-2">
                         <span class="text-emerald-600 font-bold mt-1">✓</span>
-                        <span data-i18n="why.tech.item3">Import/export <strong>Excel/CSV</strong> số lượng lớn (học sinh, phụ huynh…); lưu file media trên S3</span>
+                        <span data-i18n="why.tech.item3">Export/import <strong>CSV/Excel</strong> nghiệp vụ (kèm backup, đối chiếu staging ↔ master)</span>
                     </li>
                 </ul>
             </div>
@@ -407,8 +407,8 @@
                     <p class="text-sm text-emerald-700 mt-1" data-i18n="exp.freelancejp.subtitle">Hệ thống quản lý sự kiện ngành dược · Laravel/PHP · AWS · Batch</p>
                     <ul class="list-disc pl-5 text-gray-700 space-y-1 mt-2 mb-4">
                         <li data-i18n="exp.freelancejp.item1">Phát triển &amp; bảo trì Web Application / API (Admin &amp; App): đăng ký sự kiện, phân quyền, check-in, gửi mail bất đồng bộ.</li>
-                        <li data-i18n="exp.freelancejp.item2">Xây dựng <strong>batch bất đồng bộ</strong> (Queue/Job, SQS FIFO, Artisan command): đồng bộ dữ liệu, <strong>export CSV lên AWS S3</strong>.</li>
-                        <li data-i18n="exp.freelancejp.item3">Xử lý file <strong>CSV khối lượng lớn</strong> (export/import, backup, đối chiếu staging ↔ master), lưu trữ S3.</li>
+                        <li data-i18n="exp.freelancejp.item2">Xây dựng xử lý nền bất đồng bộ (Queue/Job, SQS FIFO, Artisan): đồng bộ dữ liệu, <strong>export CSV lên S3</strong>.</li>
+                        <li data-i18n="exp.freelancejp.item3">Làm việc với pipeline AWS: <strong>Lambda</strong>, <strong>Step Functions</strong>, <strong>Glue ETL</strong>, <strong>EventBridge</strong>; xử lý CSV/Excel và lưu trữ trên S3.</li>
                         <li data-i18n="exp.freelancejp.item4">Tham gia từ thiết kế chi tiết / migration DB đến triển khai; viết <strong>test case (PHPUnit)</strong> và tạo <strong>evidence kiểm thử</strong>.</li>
                         <li data-i18n="exp.freelancejp.item5">Phối hợp <strong>BrSE &amp; team Nhật</strong>: đọc spec/thiết kế, bám sprint, xử lý feedback review nhanh.</li>
                         <li data-i18n="exp.freelancejp.item6">Dùng <strong>Claude</strong> và <strong>Cursor</strong>; tìm skill/tool phù hợp để đọc codebase, soạn test và rà soát edge-case nhanh hơn.</li>
@@ -867,7 +867,7 @@
                     name: 'Nguyễn Tất Thành',
                     role: 'Senior PHP Developer | Laravel · AWS · Queue/Batch',
                     github: 'GitHub',
-                    summary: 'Senior PHP Developer với 6+ năm làm Web Application bằng PHP/Laravel: phát triển tính năng, bảo trì hệ thống đang chạy, và phối hợp team. Có kinh nghiệm queue/job bất đồng bộ, lưu file trên AWS S3, xử lý CSV/Excel theo nghiệp vụ, viết test và evidence khi bàn giao. Quen làm việc với BrSE trên dự án Nhật. Thường dùng Claude và Cursor, kết hợp skill/tool phù hợp để tăng tốc đọc code, thiết kế và kiểm thử. Có thể remote full-time, start ASAP.',
+                    summary: 'Senior PHP Developer với 6+ năm làm Web Application bằng PHP/Laravel: phát triển tính năng, bảo trì hệ thống đang chạy, và phối hợp team. Có kinh nghiệm queue/job bất đồng bộ, AWS (S3, Lambda, Step Functions, Glue ETL, EventBridge), xử lý CSV/Excel theo nghiệp vụ, viết test và evidence khi bàn giao. Quen làm việc với BrSE trên dự án Nhật. Thường dùng Claude và Cursor, kết hợp skill/tool phù hợp để tăng tốc đọc code, thiết kế và kiểm thử. Có thể remote full-time, start ASAP.',
                     download: 'Tải CV (PDF)',
                     contactNow: 'Liên hệ ngay'
                 },
@@ -881,7 +881,7 @@
                     title: 'Tại Sao Nên Chọn Tôi?',
                     subtitle: 'Những giá trị độc đáo mà tôi mang lại cho tổ chức của bạn',
                     track: { title: 'PHP / Laravel thực chiến', item1: '<strong>6+ năm PHP/Laravel</strong> phát triển &amp; bảo trì Web Application', item2: 'API, migration, Eloquent/MySQL; quen đọc và mở rộng hệ thống đang chạy', item3: 'Bàn giao có <strong>test case / evidence</strong>, giảm rủi ro khi release' },
-                    tech: { title: 'Queue · AWS S3 · File data', item1: 'Job gửi mail / xử lý nền qua <strong>Queue + SQS FIFO</strong>; Artisan command chạy theo lịch', item2: 'Export CSV nghiệp vụ lên <strong>AWS S3</strong> (kèm backup), đối chiếu staging ↔ master', item3: 'Import/export <strong>Excel/CSV</strong> số lượng lớn (học sinh, phụ huynh…); lưu file media trên S3' },
+                    tech: { title: 'Queue · AWS · Data pipeline', item1: 'Job nền qua <strong>Queue + SQS FIFO</strong>; lịch chạy bằng Artisan / <strong>EventBridge</strong>', item2: 'Pipeline AWS: <strong>Lambda</strong>, <strong>Step Functions</strong>, <strong>Glue Job (ETL)</strong>, lưu/đọc file trên <strong>S3</strong>', item3: 'Export/import <strong>CSV/Excel</strong> nghiệp vụ (kèm backup, đối chiếu staging ↔ master)' },
                     lead: { title: 'Làm việc nhóm · AI', item1: 'Phối hợp <strong>BrSE / dự án Nhật</strong>: đọc spec, bám sprint, xử lý feedback', item2: 'Làm từ thiết kế chi tiết đến triển khai, kèm <strong>test / evidence</strong> khi cần', item3: 'Dùng <strong>Claude + Cursor</strong>, chủ động tìm skill/tool để tối ưu workflow AI' },
                     philosophy: { title: 'Triết lý làm việc', body: 'Tôi ưu tiên hiểu rõ hệ thống đang chạy trước khi sửa, giao việc đúng hạn và có kiểm chứng. Học stack mới nhanh khi dự án cần; trong công việc hàng ngày dùng <strong>Claude</strong> và <strong>Cursor</strong>, đồng thời tự tìm skill/công cụ phù hợp để tối ưu cách làm việc với AI.' }
                 },
@@ -892,8 +892,8 @@
                         title: 'Freelance / Remote | PHP Backend Developer (dự án Nhật)',
                         subtitle: 'Hệ thống quản lý sự kiện ngành dược · Laravel/PHP · AWS · Batch',
                         item1: 'Phát triển &amp; bảo trì Web Application / API (Admin &amp; App): đăng ký sự kiện, phân quyền, check-in, gửi mail bất đồng bộ.',
-                        item2: 'Xây dựng <strong>batch bất đồng bộ</strong> (Queue/Job, SQS FIFO, Artisan command): đồng bộ dữ liệu, <strong>export CSV lên AWS S3</strong>.',
-                        item3: 'Xử lý file <strong>CSV khối lượng lớn</strong> (export/import, backup, đối chiếu staging ↔ master), lưu trữ S3.',
+                        item2: 'Xây dựng xử lý nền bất đồng bộ (Queue/Job, SQS FIFO, Artisan): đồng bộ dữ liệu, <strong>export CSV lên S3</strong>.',
+                        item3: 'Làm việc với pipeline AWS: <strong>Lambda</strong>, <strong>Step Functions</strong>, <strong>Glue ETL</strong>, <strong>EventBridge</strong>; xử lý CSV/Excel và lưu trữ trên S3.',
                         item4: 'Tham gia từ thiết kế chi tiết / migration DB đến triển khai; viết <strong>test case (PHPUnit)</strong> và tạo <strong>evidence kiểm thử</strong>.',
                         item5: 'Phối hợp <strong>BrSE &amp; team Nhật</strong>: đọc spec/thiết kế, bám sprint, xử lý feedback review nhanh.',
                         item6: 'Dùng <strong>Claude</strong> và <strong>Cursor</strong>; tìm skill/tool phù hợp để đọc codebase, soạn test và rà soát edge-case nhanh hơn.'
@@ -945,7 +945,7 @@
                 contact: { title: 'Sẵn sàng hợp tác', subtitle: 'Đang mở cho cơ hội Senior PHP remote — start ASAP. Liên hệ để trao đổi nhanh.', sendEmail: 'Gửi Email' },
                 footer: { madeWith: 'Xây dựng bằng tâm huyết.' },
                 chart: {
-                    labels: ['PHP & Laravel','Queue / Job / SQS','AWS S3','MySQL / Eloquent','Test & Evidence','BrSE / Agile','Claude & Cursor','Excel/CSV processing'],
+                    labels: ['PHP & Laravel','Queue / Job / SQS','AWS (S3, Lambda, Step Functions, Glue, EventBridge)','MySQL / Eloquent','Test & Evidence','BrSE / Agile','Claude & Cursor','Excel/CSV processing'],
                     dataset: 'Mức độ chuyên môn',
                     tooltip: ' Mức độ: '
                 }
@@ -964,7 +964,7 @@
                     name: 'Nguyen Tat Thanh',
                     role: 'Senior PHP Developer | Laravel · AWS · Queue/Batch',
                     github: 'GitHub',
-                    summary: 'Senior PHP Developer with 6+ years building and maintaining PHP/Laravel web applications: features, sustaining live systems, and team collaboration. Experience with async queues/jobs, AWS S3 file storage, business CSV/Excel flows, tests and evidence for handoff, and BrSE work on Japanese projects. I regularly use Claude and Cursor, and actively pick skills/tools to improve AI-assisted workflows. Available remote full-time, start ASAP.',
+                    summary: 'Senior PHP Developer with 6+ years building and maintaining PHP/Laravel web applications: features, sustaining live systems, and team collaboration. Experience with async queues/jobs, AWS (S3, Lambda, Step Functions, Glue ETL, EventBridge), business CSV/Excel flows, tests and evidence for handoff, and BrSE work on Japanese projects. I regularly use Claude and Cursor, and actively pick skills/tools to improve AI-assisted workflows. Available remote full-time, start ASAP.',
                     download: 'Download CV (PDF)',
                     contactNow: 'Contact now'
                 },
@@ -978,7 +978,7 @@
                     title: 'Why Choose Me?',
                     subtitle: 'Unique value I bring to your organization',
                     track: { title: 'Hands-on PHP / Laravel', item1: '<strong>6+ years PHP/Laravel</strong> building & maintaining web applications', item2: 'APIs, migrations, Eloquent/MySQL; comfortable extending live systems', item3: 'Handoff with <strong>test cases / evidence</strong> when needed' },
-                    tech: { title: 'Queue · AWS S3 · File data', item1: 'Background mail/processing via <strong>Queue + SQS FIFO</strong>; scheduled Artisan commands', item2: 'Business CSV export to <strong>AWS S3</strong> (with backup), staging ↔ master checks', item3: 'Large <strong>Excel/CSV</strong> import/export (students, parents…); media files on S3' },
+                    tech: { title: 'Queue · AWS · Data pipeline', item1: 'Background jobs via <strong>Queue + SQS FIFO</strong>; scheduling with Artisan / <strong>EventBridge</strong>', item2: 'AWS pipeline: <strong>Lambda</strong>, <strong>Step Functions</strong>, <strong>Glue Job (ETL)</strong>, files on <strong>S3</strong>', item3: 'Business <strong>CSV/Excel</strong> export/import (backup, staging ↔ master checks)' },
                     lead: { title: 'Collaboration · AI', item1: 'Work with <strong>BrSE / Japanese projects</strong>: specs, sprints, review feedback', item2: 'From detailed design to release, with <strong>tests / evidence</strong> when needed', item3: 'Use <strong>Claude + Cursor</strong>, and actively find skills/tools to improve AI workflows' },
                     philosophy: { title: 'Working Philosophy', body: 'I prefer understanding the live system before changing it, delivering on time with verification. I pick up new stacks when a project needs them; day to day I use <strong>Claude</strong> and <strong>Cursor</strong>, and look for the right skills/tools to work better with AI.' }
                 },
@@ -989,8 +989,8 @@
                         title: 'Freelance / Remote | PHP Backend Developer (Japan projects)',
                         subtitle: 'Pharma event management system · Laravel/PHP · AWS · Batch',
                         item1: 'Built & maintained Web Application / APIs (Admin & App): event registration, authorization, check-in, async email.',
-                        item2: 'Built <strong>async batch</strong> (Queue/Job, SQS FIFO, Artisan commands): data sync, <strong>CSV export to AWS S3</strong>.',
-                        item3: 'Processed <strong>large CSV files</strong> (export/import, backup, staging ↔ master reconciliation) on S3.',
+                        item2: 'Built async background processing (Queue/Job, SQS FIFO, Artisan): data sync, <strong>CSV export to S3</strong>.',
+                        item3: 'Worked with AWS pipelines: <strong>Lambda</strong>, <strong>Step Functions</strong>, <strong>Glue ETL</strong>, <strong>EventBridge</strong>; CSV/Excel handling and S3 storage.',
                         item4: 'Worked from detailed design / DB migration to release; wrote <strong>PHPUnit tests</strong> and produced <strong>test evidence</strong>.',
                         item5: 'Collaborated with <strong>BrSE & Japanese team</strong>: read specs/designs, followed sprints, handled review feedback quickly.',
                         item6: 'Used <strong>Claude</strong> and <strong>Cursor</strong>; picked relevant skills/tools to read codebases, draft tests, and review edge cases faster.'
@@ -1042,7 +1042,7 @@
                 contact: { title: 'Open to collaborate', subtitle: 'Open for Senior PHP remote roles — start ASAP. Let’s talk.', sendEmail: 'Send Email' },
                 footer: { madeWith: 'Built with dedication.' },
                 chart: {
-                    labels: ['PHP & Laravel','Queue / Job / SQS','AWS S3','MySQL / Eloquent','Test & Evidence','BrSE / Agile','Claude & Cursor','Excel/CSV processing'],
+                    labels: ['PHP & Laravel','Queue / Job / SQS','AWS (S3, Lambda, Step Functions, Glue, EventBridge)','MySQL / Eloquent','Test & Evidence','BrSE / Agile','Claude & Cursor','Excel/CSV processing'],
                     dataset: 'Proficiency',
                     tooltip: ' Level: '
                 }
